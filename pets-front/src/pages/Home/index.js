@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import './home.css'
+import PetCard from '../../components/PetCard'
+
 
 class Home extends Component {
     render() {
         return (
-            <div>
-                Home
-            </div>
+            <PetCard></PetCard>
         )
     }
 }

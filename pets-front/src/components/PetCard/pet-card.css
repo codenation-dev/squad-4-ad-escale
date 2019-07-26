@@ -1,0 +1,60 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #FAFAFA;
+}
+
+.card {
+  height: auto;
+	max-height:299px;
+	width: 200px;
+	overflow: hidden;
+	background-color: #FFFFFF;
+	border-radius: 10px;
+	box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+	text-align: center;
+	-webkit-transition: .1s ease-in-out;
+	transition: .1s ease-in-out;
+}
+
+.pet-image {
+	height: 200px;
+	width: 200px;
+	margin: auto;
+	background-size: cover;
+	border-radius: 5%;
+	box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+}
+
+img {
+  height: 200px;
+	width: 200px;
+}
+
+.pet-info {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+p {
+	font-family: 'Roboto', sans-serif;
+	font-weight: lighter;
+}
+
+
+
+
+	
+
+
+
+	
