@@ -5,7 +5,7 @@ class PetCard extends Component {
     render() {
         return (
           <div className="card">
-            <div className="pet-image"></div>
+              <img className='pet-image' src='https://www.humanesociety.org/sites/default/files/styles/400x400/public/2018/06/cat-217679.jpg?h=c4ed616d&itok=H0FcH69a'/>
             <div className="pet-info">
               <p>Gato</p>
               <p>Porte Médio</p>
