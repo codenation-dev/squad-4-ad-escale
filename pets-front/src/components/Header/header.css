@@ -4,9 +4,13 @@
 
 .navbar-header {
   float: left;
-  padding: 15px;
-  text-align: center;
+  text-align: left;
   width: 100%;
+}
+
+.navbar {
+  padding: 0px;
+  margin: 0px;
 }
 
 .navbar-logo {

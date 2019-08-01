@@ -6,14 +6,14 @@ import logopetcodes from '../../_assets/img/logo-petcodes.png'
 class Header extends Component {
     render() {
         return (
-            <nav className="navbar navbar-fixed-top navbar-inverse ">
-                <div className="container">
-                    <div className="navbar-header header">
-                        <div href="#" className="navbar-brand">
-                            <img src={logopetcodes} alt="Logo" className="navbar-logo" />
-                        </div>
+            <nav className="navbar navbar-expand-lg navbar-fixed-top">
+
+                <div className="navbar-header header">
+                    <div href="#" className="navbar-brand">
+                        <img src={logopetcodes} alt="Logo" className="navbar-logo" />
                     </div>
                 </div>
+
             </nav>
         )
     }
