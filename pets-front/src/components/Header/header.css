@@ -24,6 +24,11 @@
     margin: 0.4em 0;
 }
 
+.navbar {
+  padding: 0px;
+  margin: 0px;
+}
+
 .navbar-logo {
   height: 2.3rem;
 }

@@ -1,0 +1,27 @@
+.search-navbar {
+  justify-content: center;
+  margin-right: 20px;
+  align-items: stretch;
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+/* For desktop: */
+@media only screen and (min-width: 768px) {
+  .search-navbar {
+    justify-content: center;
+    margin-right: 20px;
+    align-items: stretch;
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+}
