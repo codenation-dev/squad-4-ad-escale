@@ -1,0 +1,10 @@
+.round-icon {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    justify-items: center;
+}
+
+.div-icon {
+    margin: 5px
+}
