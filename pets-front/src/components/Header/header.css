@@ -5,6 +5,10 @@
   justify-content: space-between;
   padding-left: 20px;
   padding-right: 20px;
+  position: fixed;
+  top: 0;
+  z-index: 28;
+  width: 100%;
 }
 
 .barra-nav,
@@ -18,10 +22,26 @@
 
 .menu-principal li {
     float: left;
+    position: relative;
+    margin-right: 24px;
+    font-size: 12px;
+    color: #4D4C59;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.menu-principal a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu-principal a:hover {
+  color: #fff;
+  text-decoration: none;
 }
 
 .barra-nav {
-    margin: 0.4em 0;
+  margin: 0.4em 0;
 }
 
 .navbar {
@@ -48,28 +68,18 @@
       position: fixed;
       z-index: 1;
       top: 0;
-      left: -90%;
-      transition: left 0.3s ease-out;
+      right: -90%;
+      transition: right 0.3s ease-out;
   }
 
   .menu-ativo .barra-nav {
-      left: 0;
+      right: 0;
   }
 
   .menu-principal li {
       padding: 1em 0;
       width: 100%;
   }
-
-  .menu-principal a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.menu-principal a:hover {
-  color: #fff;
-  text-decoration: none;
-}
 
   .menu-ativo:after {
         content: "";
@@ -81,6 +91,10 @@
         right: 0;
         background: rgba(0,0,0,0.4);
     }
+    
+  .nav-bar {
+    position: absolute;
+  }
 }
 
 @media not all and (max-width: 600px) {
