@@ -1,50 +1,82 @@
-from models import Animal as AnimalModel
-# from models import Employee as EmployeeModel
-# from models import Role as RoleModel
-
 import graphene
-from graphene import relay
-from graphene_sqlalchemy import SQLAlchemyConnectionField, SQLAlchemyObjectType
+from graphene import relay, ObjectType, Field, String, ID
+from graphene_sqlalchemy import SQLAlchemyConnectionField, SQLAlchemyObjectType, converter
+
+from database import db_session
+from models import AnimalModel
 
 
 class Animal(SQLAlchemyObjectType):
-    class Meta:
+    class Meta: 
         model = AnimalModel
-        interfaces = (relay.Node, )
+
+class AnimalAttributes(object):
+    id = ID(required=False)
+    name = String(required=False)
+    species = String(required=False)
+    insert_date = String(required=False)
+    breed =  String(required=False)
+    gender = String(required=False)
+    size = String(required=False)
+    city = String(required=False)
+    state = String(required=False)
+    postalcode = String(required=False)
+
+  
+class CreateAnimalInput(graphene.InputObjectType, AnimalAttributes):
+    """Arguments to create a animal."""
+    exclude_fields = ['id']
 
 
-# class Employee(SQLAlchemyObjectType):
-#     class Meta:
-#         model = EmployeeModel
-#         interfaces = (relay.Node, )
+class UpdateAnimalInput(graphene.InputObjectType, AnimalAttributes):
+    """Arguments to update a animal."""
+    # id = ID(required=True)
+    pass
 
 
-# class Role(SQLAlchemyObjectType):
-#     class Meta:
-#         model = RoleModel
-#         interfaces = (relay.Node, )
+class CreateAnimal(graphene.Mutation):
+    animal = graphene.Field(Animal, description="Animal created by this mutation.")
+    
+    class Arguments:
+        input = CreateAnimalInput(required=True)
+
+    @staticmethod
+    def mutate(root, info, input):
+        animal = AnimalModel(**input)
+        db_session.add(animal)
+        db_session.commit()
+        return CreateAnimal(animal=animal)
 
 
-class Query(graphene.ObjectType):
-    node = relay.Node.Field()
-    # Allow only single column sorting
-    # all_employees = SQLAlchemyConnectionField(
-    #     Employee, sort=Employee.sort_argument())
-    # Allows sorting over multiple columns, by default over the primary key
-    # all_roles = SQLAlchemyConnectionField(Role)
-    # Disable sorting over this field
-    all_animals = SQLAlchemyConnectionField(Animal, sort=None)
+class UpdateAnimal(graphene.Mutation):
+    animal = graphene.Field(Animal, description="Animal updated by this mutation.")
+    
+    class Arguments:
+        input = UpdateAnimalInput(required=True)
 
-# class Mutations(graphene.ObjectType):
-#     class Arguments:
-#         name = graphene.String()
+    @staticmethod
+    def mutate(root, info, input):
+        query = AnimalModel.query.filter_by(id=input['id'])
+        update = query.update(input)
+        db_session.commit()
+        return UpdateAnimal(animal=query.first())
 
-#     ok = graphene.Boolean()
-#     person = graphene.Field(lambda: Animal)
+class Query(ObjectType):
+    dict_f = dict((name, getattr(AnimalAttributes, name)) for name in dir(AnimalAttributes) if not name.startswith('__'))
+    animals = graphene.List(Animal, maxItems=String(required=False), **dict_f)
+    def resolve_animals(self, info, **kwargs):
+        query = AnimalModel.query
+        maxItems = 1000
+        for attr,value in kwargs.items():
+            if attr == 'maxItems':
+                maxItems = int(value)
+            else:
+                value = value.lower()
+                query = query.filter( getattr(AnimalModel,attr)==value)
+        return query.limit(maxItems).all()
 
-#     def mutate(root, info, name):
-#         person = Animal(name=name)
-#         ok = True
-#         return CreatePerson(person=person, ok=ok)
+class Mutation(graphene.ObjectType):
+    createAnimal = CreateAnimal.Field()
+    updateAnimal = UpdateAnimal.Field()
 
-schema = graphene.Schema(query=Query, types=[Animal])
+schema = graphene.Schema(query=Query, mutation=Mutation)

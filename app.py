@@ -11,25 +11,39 @@ app.debug = True
 
 example_query = """
 {
-  allEmployees(sort: [NAME_ASC, ID_ASC]) {
-    edges {
-      node {
-        id
-        name
-        department {
-          id
-          name
-        }
-        role {
-          id
-          name
-        }
-      }
+  animals(species:dog){
+    id
+    name
+  }
+}
+
+"""
+example_create= """
+mutation {
+  createAnimal (input: {
+    name: "Alexis ROLLAND"
+  }) {
+    animal {
+      id
+      name
     }
   }
 }
 """
 
+example_update = """"
+mutation {
+  updateAnimal (input: {
+    id: 1,
+    name: "Jack"
+  }) {
+    animal {
+      id
+      name
+    }
+  }
+}
+"""
 
 app.add_url_rule(
     "/graphql", view_func=GraphQLView.as_view("graphql", schema=schema, graphiql=True)
