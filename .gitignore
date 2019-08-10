@@ -1,0 +1,12 @@
+# ----------------------------------------------------------------------------------------- #
+#  Sugestao de gitignore. Edite como for adequado para seu ambiente de desenvolvimento :)   #
+# ----------------------------------------------------------------------------------------- #
+# Nao incluir binarios gerados automaticamente pelo Python
+*.pyc
+__pycache__/
+# Nao incluir os arquivos de configuracao da sua Virtualenv
+venv/
+# Nao incluir os arquivos de configuracao da sua IDE
+.vscode/
+# E nao esquecer de manter seu arquivo .gitignore apenas na sua maquina!
+.gitignore
