@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import SearchNavbar from '../../components/SearchNavbar'
 import TypeListItem from '../TypeListItem'
-import dog from '../../_assets/img/dog.png'
-import cat from '../../_assets/img/cat.png'
-import bird from '../../_assets/img/bird.png'
-import rabbit from '../../_assets/img/rabbit.png'
-import rodent from '../../_assets/img/rodent.png'
+import dog from '../../_assets/img/dog.svg'
+import cat from '../../_assets/img/cat.svg'
+import bird from '../../_assets/img/bird.svg'
+import rabbit from '../../_assets/img/rabbit.svg'
+import rodent from '../../_assets/img/rodent.svg'
 
 class SpeciesList extends Component {
     render() {
@@ -15,7 +15,7 @@ class SpeciesList extends Component {
                 <TypeListItem image={cat} text="Gato"/>
                 <TypeListItem image={bird} text="Pássaro"/>
                 <TypeListItem image={rabbit} text="Coelho"/>
-                <TypeListItem image={rodent} text="Hamster"/>
+                <TypeListItem image={rodent} text="Roedor"/>
             </div>
 
         )

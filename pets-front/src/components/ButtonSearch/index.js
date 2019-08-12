@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './button-search.css';
 
-class InputSearch extends Component {
+class ButtonSearch extends Component {
     render() {
         return (
             <button className="button-search">
@@ -11,4 +11,4 @@ class InputSearch extends Component {
     }
 }
 
-export default InputSearch;
+export default ButtonSearch;

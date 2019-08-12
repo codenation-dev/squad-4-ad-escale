@@ -6,6 +6,9 @@ import { withRouter } from "react-router";
 import { AnimatedRoute } from 'react-router-transition';
 import AdvancedSearch from '../../pages/AdvancedSearch';
 import Home from '../../pages/Home';
+import Login from '../../pages/Login';
+import NewPassword from '../../pages/NewPassword'
+import Register from '../../pages/Register'
 
 class App extends Component {
 
@@ -22,8 +25,13 @@ class App extends Component {
     render() {
         return (
             <div>
-
                 <Route path="/" exact component={Home} />
+
+                <Route path="/login" exact component={Login} />
+
+                <Route path="/forgotPassword" exact component={NewPassword} />
+
+                <Route path="/register" exact component={Register} />
 
                 <AnimatedRoute
                     path="/advancedSearch"
