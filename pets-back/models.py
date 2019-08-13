@@ -21,7 +21,7 @@ import graphene
 class AnimalModel(Base):
     __tablename__ = 'animals'
     id = Column(Integer, primary_key=True)
-    insert_date = Column(DateTime, default=func.now())
+    insertDate = Column(DateTime, default=func.now())
     name =  Column(String)
     breed =  Column(String)
     gender = Column(Enum('female', 'male', name='gender'))

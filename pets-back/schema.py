@@ -15,7 +15,7 @@ class AnimalAttributes(object):
     id = ID(required=False)
     name = String(required=False)
     species = String(required=False)
-    insert_date = String(required=False)
+    insertDate = String(required=False)
     breed =  String(required=False)
     gender = String(required=False)
     size = String(required=False)
