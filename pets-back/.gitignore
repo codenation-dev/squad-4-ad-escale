@@ -6,6 +6,7 @@
 __pycache__/
 # Nao incluir os arquivos de configuracao da sua Virtualenv
 venv/
+.env
 # Nao incluir os arquivos de configuracao da sua IDE
 .vscode/
 # E nao esquecer de manter seu arquivo .gitignore apenas na sua maquina!
