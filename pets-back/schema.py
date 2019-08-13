@@ -4,6 +4,7 @@ from graphene_sqlalchemy import SQLAlchemyConnectionField, SQLAlchemyObjectType,
 
 from database import db_session
 from models import AnimalModel
+from sqlalchemy import desc
 
 
 class Animal(SQLAlchemyObjectType):
@@ -62,14 +63,20 @@ class UpdateAnimal(graphene.Mutation):
         return UpdateAnimal(animal=query.first())
 
 class Query(ObjectType):
-    dict_f = dict((name, getattr(AnimalAttributes, name)) for name in dir(AnimalAttributes) if not name.startswith('__'))
-    animals = graphene.List(Animal, maxItems=String(required=False), **dict_f)
+    model_fields = dict((name, getattr(AnimalAttributes, name)) for name in dir(AnimalAttributes) if not name.startswith('__'))
+    general = {
+        'maxItems':String(required=False, description='Max number of items'),
+        'orderByDesc':String(required=False, description='Descendent order by given field name')
+    }
+    animals = graphene.List(Animal, **general, **model_fields, description='Return registered animals')
     def resolve_animals(self, info, **kwargs):
         query = AnimalModel.query
         maxItems = 1000
         for attr,value in kwargs.items():
             if attr == 'maxItems':
                 maxItems = int(value)
+            elif attr == 'orderByDesc':
+                query = query.order_by(desc(value))
             else:
                 value = value.lower()
                 query = query.filter( getattr(AnimalModel,attr)==value)
