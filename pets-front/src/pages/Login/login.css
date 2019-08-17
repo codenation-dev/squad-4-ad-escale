@@ -1,0 +1,40 @@
+.div-center {
+    text-align: center;
+    margin: 5px 15px 0 15px;   
+}
+
+.div-right {
+    text-align: right;
+    margin: 5px 15px 0 15px; 
+}
+
+.div-center-content {
+    text-align: center;
+    justify-content: center;
+    margin: 20px 15px 0 15px;  
+}
+
+.p-link {
+    color: #35d1f8;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.p-login {
+    color: rgb(71, 71, 71);
+    font-weight: 300;
+    font-size: 1rem;
+    margin-right: 5px;
+}
+
+.img-logo {
+    width: 150px;
+}
+
+.div-logo {
+    margin: 20px 0 40px 0;
+}
+
+.div-input {
+    margin: 20px 0 20px 0;
+}

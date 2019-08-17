@@ -1,0 +1,30 @@
+.title {
+    font-weight: 300;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.subtitle {
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-align: left;
+    margin-left: 10px;
+}
+
+.horizontal-line {
+    width: 100%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-color: rgb(147, 147, 151);
+}
+
+.div-button-search {
+    text-align: center;
+    margin: 15px 0 15px 0;     
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+    width: auto;
+}
