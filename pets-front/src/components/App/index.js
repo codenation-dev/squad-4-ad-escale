@@ -9,6 +9,7 @@ import Home from '../../pages/Home';
 import Login from '../../pages/Login';
 import NewPassword from '../../pages/NewPassword'
 import Register from '../../pages/Register'
+import PetDetail from '../../pages/PetDetail';
 
 class App extends Component {
 
@@ -32,6 +33,8 @@ class App extends Component {
                 <Route path="/forgotPassword" exact component={NewPassword} />
 
                 <Route path="/register" exact component={Register} />
+
+                <Route path="/pet-detail" exact component={PetDetail} />
 
                 <AnimatedRoute
                     path="/advancedSearch"
