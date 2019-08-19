@@ -34,7 +34,7 @@ class App extends Component {
 
                 <Route path="/register" exact component={Register} />
 
-                <Route path="/pet-detail" exact component={PetDetail} />
+                <Route path="/pet-detail/:id" exact component={PetDetail} />
 
                 <AnimatedRoute
                     path="/advancedSearch"

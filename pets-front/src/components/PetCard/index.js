@@ -9,21 +9,20 @@ class PetCard extends Component {
 
         return (
           <>
-          <h2 className="h2-title">Últimos pets encontrados</h2>
-          <div class="all-cards">
-            {mock.results.map((pets) => (
-              <Link to="/pet-detail">
-                <div className="card">
-                    <img className='pet-image' src={pets.image}/>
-                  <div className="pet-info">
-                    <p>{pets.pet}</p>
-                    <p>{pets.city}</p>
-                  </div>
-               </div>
-            </Link>
-          ))}
-
-        </div>
+            <h2 className="h2-title">Últimos pets encontrados</h2>
+            <div className="all-cards">
+              {mock.results.map((pet) => (
+                <Link to={`/pet-detail/${pet.id}`} key={pet.id}>
+                  <div className="card">
+                      <img className='pet-image' src={pet.image}/>
+                    <div className="pet-info">
+                      <p>{pet.pet}</p>
+                      <p>{pet.city}</p>
+                    </div>
+                </div>
+              </Link>
+            ))}
+          </div>
         </>
         )
     }
