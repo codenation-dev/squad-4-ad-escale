@@ -1,0 +1,44 @@
+{
+  "results": [
+      {
+          "id": "1",
+          "pet": "Gato",
+          "category": "Encontrado",
+          "size": "Pequeno",
+          "city": "São Paulo",
+          "image": "https://www.humanesociety.org/sites/default/files/styles/400x400/public/2018/06/cat-217679.jpg?h=c4ed616d&itok=H0FcH69a"
+      },
+      {
+          "id": "2",
+          "pet": "Cachorro",
+          "category": "Encontrado",
+          "size": "Grande",
+          "city": "Guarulhos",
+          "image": "https://catracalivre.com.br/wp-content/uploads/2015/05/vira-lata-adulto.jpg"
+      },
+      {
+          "id": "3",
+          "pet": "Coelho",
+          "category": "Encontrado",
+          "size": "Pequeno",
+          "city": "São Bernando do Campo",
+          "image": "https://meusanimais.com.br/wp-content/uploads/2018/06/coelho.jpg"
+      },
+      {
+          "id": "4",
+          "pet": "Porquinho da India",
+          "category": "Encontrado",
+          "size": "Pequeno",
+          "city": "São Paulo",
+          "image": "https://t2.uc.ltmcdn.com/images/2/7/0/img_como_cuidar_a_una_cobaya_embarazada_26072_600.jpg"
+    },
+    {
+          "id": "5",
+          "pet": "Gato",
+          "category": "Encontrado",
+          "size": "Pequeno",
+          "city": "São Paulo",
+          "image": "https://www.purina.pt/sites/g/files/mcldtz1671/files/2018-02/imagem-gatos-adotados_0.jpg"
+    }
+  ]
+}

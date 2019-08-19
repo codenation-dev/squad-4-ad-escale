@@ -4,16 +4,21 @@
 	box-sizing: border-box;
 }
 
+.h2-title {
+	font-size: 16px;
+	color: #686976;
+	margin-left: 30px;
+}
+
 .all-cards{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	background: #FAFAFA;
 }
 
 .card {
-	width: 230px;
-  height: 330px;
+	width: 220px;
+  height: 300px;
 	overflow: hidden;
 	background-color: #FFF;
 	border-radius: 10px;
@@ -24,7 +29,7 @@
 }
 
 .pet-image {
-  height: 230px;
+  height: 200px;
 	width: 100%;
   border-top-left-radius: 5%;
   border-top-right-radius: 5%;
@@ -38,4 +43,10 @@
 
 p {
   font-size: 1.2em;
+}
+
+@media (max-width: 600px) {
+ .all-cards {
+	 flex-direction: column;
+ }
 }
