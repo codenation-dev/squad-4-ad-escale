@@ -20,7 +20,7 @@ class PetCard extends Component {
                       <p>{pet.city}</p>
                     </div>
                 </div>
-              </Link>
+               </Link>
             ))}
           </div>
         </>

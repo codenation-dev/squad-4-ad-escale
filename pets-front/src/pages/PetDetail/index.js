@@ -13,7 +13,9 @@ const PetDetail = ({ match }) => {
            {pets.map((pet) => {
              return (
               <div className="pet-detail">
-                <img className='pet-image-detail' src={pet.image}/>
+                <div class="text-center">
+                  <img className='pet-image-detail' src={pet.image}/>
+                </div>
                 <div className="pet-description">
                   Raça {pet.gender} Filhote {pet.size}
                   <div className="pet-info">

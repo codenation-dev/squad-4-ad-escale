@@ -10,6 +10,7 @@ import Login from '../../pages/Login';
 import NewPassword from '../../pages/NewPassword'
 import Register from '../../pages/Register'
 import PetDetail from '../../pages/PetDetail';
+import PetSearch from '../../pages/PetSearch';
 
 class App extends Component {
 
@@ -35,6 +36,8 @@ class App extends Component {
                 <Route path="/register" exact component={Register} />
 
                 <Route path="/pet-detail/:id" exact component={PetDetail} />
+
+                <Route path="/pet-search/:search" exact component={PetSearch} />
 
                 <AnimatedRoute
                     path="/advancedSearch"
