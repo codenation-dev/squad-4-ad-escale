@@ -11,6 +11,8 @@ import NewPassword from '../../pages/NewPassword'
 import Register from '../../pages/Register'
 import PetDetail from '../../pages/PetDetail';
 import PetSearch from '../../pages/PetSearch';
+import Header from '../../components/Header';
+
 
 class App extends Component {
 
@@ -27,6 +29,10 @@ class App extends Component {
     render() {
         return (
             <div>
+
+                {(this.props.location.pathname !== '/login' &&
+                    this.props.location.pathname !== '/forgotPassword') ? <Header /> : null}
+                        
                 <Route path="/" exact component={Home} />
 
                 <Route path="/login" exact component={Login} />
