@@ -1,17 +1,30 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import './pet-card.css'
+import mock from '../../_assets/mock.json'
 
 class PetCard extends Component {
+
     render() {
+
         return (
-          <div className="card">
-              <img className='pet-image' src='https://www.humanesociety.org/sites/default/files/styles/400x400/public/2018/06/cat-217679.jpg?h=c4ed616d&itok=H0FcH69a'/>
-            <div className="pet-info">
-              <p>Gato</p>
-              <p>Porte Médio</p>
-              <p>São Paulo</p>
-            </div>
+          <>
+          <h2 className="h2-title">Últimos pets encontrados</h2>
+          <div class="all-cards">
+            {mock.results.map((pets) => (
+              <Link to="/pet-detail">
+                <div className="card">
+                    <img className='pet-image' src={pets.image}/>
+                  <div className="pet-info">
+                    <p>{pets.pet}</p>
+                    <p>{pets.city}</p>
+                  </div>
+               </div>
+            </Link>
+          ))}
+
         </div>
+        </>
         )
     }
 }

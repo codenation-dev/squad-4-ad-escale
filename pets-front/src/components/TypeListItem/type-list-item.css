@@ -1,0 +1,18 @@
+.icon-list {
+    height: 30px;
+    width: 30px;
+    justify-items: center;
+}
+
+.div-icon {
+    margin: 5px
+}
+
+.align-center {
+    text-align: center; 
+    padding-bottom: 0
+}
+
+.p-3{
+    padding: 0.2rem 1rem 0.2rem 1rem!important;
+}

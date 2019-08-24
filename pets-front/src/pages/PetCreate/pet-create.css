@@ -1,0 +1,12 @@
+.dropdown {
+    width: 150px;
+    height: 30px;
+    float: left;
+}   
+
+.label {
+    font-size: 1rem;
+    color: #35d1f8;
+    float: left;
+    margin-left: 5px
+}
