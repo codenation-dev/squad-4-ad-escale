@@ -41,7 +41,7 @@ Plataforma web para publicação e busca de animais perdidos, achados ou dispon�
  ### - Breed
  Fields      | Data Type   | Required  | Default       | Description
 | :----------| :-----------| :---------| :-------------| :--------------------------------------------|
- id          | int         | True      | Autoincrement | Breed unique identifier
+ id          | int         | True      | Autoincrement | Species unique identifier
  name        | string      | True      | None          | Breed name
  species_id  | int         | True      | None          | Species foreign key
 

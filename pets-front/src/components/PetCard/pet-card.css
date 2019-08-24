@@ -28,6 +28,15 @@
   margin-top: 20px;
 }
 
+.card:hover {
+	border: 3px #35d1f8 solid;
+}
+
+.pet-info:hover {
+	text-decoration: none;
+	color: #686976;;
+}
+
 .pet-image {
   height: 200px;
 	width: 100%;
@@ -37,12 +46,15 @@
 }
 
 .pet-info {
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: 5px;
+	flex-direction: column;
+	color: #46709E;
+	font-weight: 500;
 }
 
-p {
-  font-size: 1.2em;
+.pet-name {
+	font-size: 1.2em;
+	margin-bottom: 5px;
 }
 
 @media (max-width: 600px) {

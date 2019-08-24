@@ -7,7 +7,7 @@
   border-radius: 10px;
   box-shadow: 0 8px 20px 0 rgba(158, 184, 209, 0.43);
   text-align: center;
-  margin: 20px auto 32px auto;
+  margin: 80px auto 32px auto;
   
 }
 
@@ -28,6 +28,6 @@
         border-radius: 10px;
         box-shadow: 0 8px 20px 0 rgba(158, 184, 209, 0.43);
         text-align: center;
-        margin: 20px auto 32px auto;
+        margin: 80px auto 32px auto;
       }
 }
