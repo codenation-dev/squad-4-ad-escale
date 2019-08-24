@@ -16,8 +16,8 @@ class PetCard extends Component {
                   <div className="card">
                       <img className='pet-image' src={pet.image}/>
                     <div className="pet-info">
-                      <p>{pet.pet}</p>
-                      <p>{pet.city}</p>
+                      <p className="pet-name">{pet.pet}</p>
+                      <p className="pet-name">{pet.city}</p>
                     </div>
                 </div>
                </Link>
