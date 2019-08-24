@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './header.css';
 import logopetcodes from '../../_assets/img/logo-petcodes.png'
+import { IoIosMenu } from "react-icons/io";
 
 
 class Header extends Component {
@@ -19,7 +20,7 @@ class Header extends Component {
                 <button type="button"
                     className="menu-abrir"
                     onClick={this.openMenu}>
-                    Menu
+                    <IoIosMenu />
                 </button>
                 <div href="#" className="navbar-brand">
                     <img src={logopetcodes} alt="Logo" className="navbar-logo" />

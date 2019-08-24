@@ -13,6 +13,8 @@ import PetDetail from '../../pages/PetDetail';
 import PetSearch from '../../pages/PetSearch';
 import Header from '../../components/Header';
 
+import Profile from '../../pages/Profile'
+import PetCreate from '../../pages/PetCreate'
 
 class App extends Component {
 
@@ -32,7 +34,7 @@ class App extends Component {
 
                 {(this.props.location.pathname !== '/login' &&
                     this.props.location.pathname !== '/forgotPassword') ? <Header /> : null}
-                        
+
                 <Route path="/" exact component={Home} />
 
                 <Route path="/login" exact component={Login} />
@@ -44,6 +46,10 @@ class App extends Component {
                 <Route path="/pet-detail/:id" exact component={PetDetail} />
 
                 <Route path="/pet-search/:search" exact component={PetSearch} />
+
+                <Route path="/profile" exact component={Profile} />
+
+                <Route path="/pet-create" exact component={PetCreate} />
 
                 <AnimatedRoute
                     path="/advancedSearch"
