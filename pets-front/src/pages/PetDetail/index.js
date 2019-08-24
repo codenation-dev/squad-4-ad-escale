@@ -18,7 +18,7 @@ const PetDetail = ({ match }) => {
                 </div>
                 <div className="pet-description">
                   Raça {pet.gender} Filhote {pet.size}
-                  <div className="pet-info">
+                  <div className="pet-info-box">
                     <span>{pet.city}</span>
                     <span class="badge badge-success">{pet.category}</span>
                   </div>
