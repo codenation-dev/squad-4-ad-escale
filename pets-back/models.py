@@ -30,3 +30,9 @@ class AnimalModel(Base):
     city = Column(String)
     state = Column(String)
     postalcode = Column(String)
+
+class BreedModel(Base):
+    __tablename__ = 'breeds'
+    id = Column(Integer, primary_key=True)
+    name =  Column(String)
+    specie = Column(String)
