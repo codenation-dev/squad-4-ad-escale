@@ -5,8 +5,47 @@ from graphene_sqlalchemy import SQLAlchemyConnectionField, SQLAlchemyObjectType,
 from database import db_session
 from models import AnimalModel
 from models import BreedModel
+from models import UserModel
 from sqlalchemy import desc
 
+class Users(SQLAlchemyObjectType):
+    class Meta:
+        model = UserModel
+        interfaces = (relay.Node, )
+
+
+class UsersConnection(relay.Connection):
+    class Meta:
+        node = Users
+
+
+class CreateUser(graphene.Mutation):
+    class Arguments:
+        name = graphene.String()
+        username = graphene.String()
+        email = graphene.String()
+        password = graphene.String()
+        phone = graphene.String()
+
+
+    new_user = graphene.Field(lambda: Users)
+
+    def mutate(root, info, name, username, email, password, phone):
+        new_user = Users(name=name, username=username, email=email, password=password, phone=phone)
+        return CreateUser(new_user=new_user)
+
+
+class User(graphene.ObjectType):
+    name = graphene.String()
+    username = graphene.String()
+    email = graphene.String()
+    password = graphene.String()
+    phone = graphene.String()
+    city = graphene.String()
+    validation_question = graphene.String()
+    validation_answer = graphene.String()
+    url_picture = graphene.String()
+    
 
 class Animal(SQLAlchemyObjectType):
     class Meta: 
@@ -15,6 +54,10 @@ class Animal(SQLAlchemyObjectType):
 class Breed(SQLAlchemyObjectType):
     class Meta: 
         model = BreedModel
+
+class Users(SQLAlchemyObjectType):
+    class Meta: 
+        model = UserModel
 
 class AnimalAttributes(object):
     id = ID(required=False)
@@ -32,6 +75,10 @@ class BreedAttributes(object):
     id = ID(required=False)
     name = String(required=False)
     specie = String(required=False)
+
+class UserAttributes(object):
+    id = ID(required=False)
+    ## add outros
 
 class CreateBreedInput(graphene.InputObjectType, BreedAttributes):
     """Arguments to create a breed."""
@@ -89,6 +136,7 @@ class UpdateAnimal(graphene.Mutation):
         return UpdateAnimal(animal=query.first())
 
 class Query(ObjectType):
+    user = graphene.Field(User)
     model_fields = dict((name, getattr(AnimalAttributes, name)) for name in dir(AnimalAttributes) if not name.startswith('__'))
     model_fields_breed = dict((name, getattr(BreedAttributes, name)) for name in dir(BreedAttributes) if not name.startswith('__'))
 
@@ -128,5 +176,6 @@ class Mutation(graphene.ObjectType):
     createAnimal = CreateAnimal.Field()
     updateAnimal = UpdateAnimal.Field()
     createBreed = CreateBreed.Field()
+    create_user = CreateUser.Field()
 
 schema = graphene.Schema(query=Query, mutation=Mutation)

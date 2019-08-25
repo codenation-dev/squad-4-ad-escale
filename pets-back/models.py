@@ -36,3 +36,20 @@ class BreedModel(Base):
     id = Column(Integer, primary_key=True)
     name =  Column(String)
     specie = Column(String)
+
+class UserModel(Base):
+    __tablename__ = 'users'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(256), nullable=False)
+    username = Column(String(80), unique=True, nullable=False)
+    password = Column(String(80), unique=False, nullable=False)
+    email = Column(String(120), unique=True, nullable=False)
+    phone = Column(String(9), unique=True, nullable=False)
+    url_picture = Column(String)
+    validation_question = Column(String, nullable=False)
+    validation_answer= Column(String, nullable=False)
+    city = Column(String)
+
+    def __repr__(self):
+        return '<User %r>' % self.name
