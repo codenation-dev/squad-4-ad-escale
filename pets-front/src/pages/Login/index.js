@@ -9,7 +9,7 @@ import Modal from '../../components/Modal'
 import logo from '../../_assets/img/logo-login.png'
 import './login.css';
 import * as thunks from "./thunk";
-import * as EmailValidator from 'email-validator';
+var validator = require("email-validator");
 
 
 class Login extends Component {
@@ -17,6 +17,14 @@ class Login extends Component {
 
     onChangeUsername = (event) => {
         this.props.dispatch(changeUsername(event.target.value));
+    }
+
+    validateUsername = () => {
+        return validator.validate(this.props.username);
+    }
+
+    validatePasword = () => {
+        return this.props.password.length > 0 ? true : false;
     }
 
     onChangePassword = (event) => {
@@ -58,7 +66,10 @@ class Login extends Component {
                     </Link>
                 </div>
 
-                <ButtonLogin onClick={this.handleLogin} />
+                <ButtonLogin
+                    onClick={this.handleLogin}
+                    usernameValid={this.validateUsername}
+                    password={this.validatePassword} />
                 <div className="row div-center-content">
                     <Link to="/register">
                         <p className="p-login">Não tem uma conta?</p> <p className="p-link">Cadastre-se</p>
