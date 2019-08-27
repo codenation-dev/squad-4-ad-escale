@@ -1,16 +1,14 @@
-import React, { Component } from 'react'
-import './button-login.css';
+import React, { Component } from "react";
+import "./button-login.css";
 
 class ButtonLogin extends Component {
-    render() {
-        return (
-            <button className="button-login"
-                onClick={this.props.onClick}
-                disabled={!this.props.usernameValid || this.props.passwordValid}>
-                Entrar
-            </button>
-        )
-    }
+  render() {
+    return (
+      <button className="button-login" onClick={this.props.onClick}>
+        Entrar
+      </button>
+    );
+  }
 }
 
 export default ButtonLogin;
