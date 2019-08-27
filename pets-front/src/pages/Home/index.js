@@ -7,10 +7,12 @@ import InputSearch from '../../components/InputSearch';
 import ButtonSearch from '../../components/ButtonSearch';
 import AdvancedButtonSearch from '../../components/AdvancedButtonSearch'
 import AdvancedSearch from '../AdvancedSearch';
+import Carousel from '../../components/Carousel'
 class Home extends Component {
     render() {
         return (
             <div>
+                <Carousel />  
                 <SearchCard>
                     <SearchNavbar></SearchNavbar>
                     <br></br>

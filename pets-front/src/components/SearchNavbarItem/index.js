@@ -2,22 +2,14 @@ import React, { Component } from 'react'
 import './search-navbar-item.css';
 
 class SearchNavbarItem extends Component {
-
-    constructor(props) {
-        super();
-        this.state = {
-            active: 0
-        }
-    }
-
     render() {
+        let style = "search-navbar-item"
+        if (this.props.isActive) {
+            style = "search-navbar-item-active"
+        }
         return (
-            <h1 className="search-navbar-item" onClick={this.onClick}>{this.props.text}</h1>
+            <h1 className={style} id={this.props.value} onClick={(e) => this.props.onClick(e)}>{this.props.text}</h1>
         )
-    }
-
-    onClick() {
-
     }
 }
 

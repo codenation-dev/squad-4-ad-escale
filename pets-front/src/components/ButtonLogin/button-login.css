@@ -36,6 +36,10 @@ button {
     height: 56px;
 }
 
+.button-login:disabled {
+    background-color: #7fd4e9;
+}
+
 /* For desktop: */
 
 @media only screen and (min-width: 768px) {
@@ -54,5 +58,8 @@ button {
         outline: none;
         margin-top: 10px;
         padding: 0 15px;
+    }
+    .button-login:disabled {
+        background-color: #7fd4e9;
     }
 }

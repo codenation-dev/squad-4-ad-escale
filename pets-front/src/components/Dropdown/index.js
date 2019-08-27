@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Dropdown from 'react-dropdown'
+import 'react-dropdown/style.css'
 
 const options = [
     'cachorro', 'gato', 'coelho'
@@ -13,10 +14,10 @@ class MyDropdown extends Component {
             <Dropdown
                 className="dropdown"
                 options={options}
-                onChange={this._onSelect}
+                value={this.props.type}
+                onChange={(e) => this.props.onChange(e)}
                 value={defaultOption}
                 placeholder="selecione" />
-
         )
     }
 }
