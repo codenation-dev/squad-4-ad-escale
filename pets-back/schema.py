@@ -1,5 +1,5 @@
 import graphene
-from graphene import relay, ObjectType, Field, String, ID
+from graphene import relay, ObjectType, Field, String, ID, Int
 from graphene_sqlalchemy import SQLAlchemyConnectionField, SQLAlchemyObjectType, converter
 
 from database import db_session
@@ -64,12 +64,13 @@ class AnimalAttributes(object):
     name = String(required=False)
     species = String(required=False)
     insertDate = String(required=False)
-    breed =  String(required=False)
     gender = String(required=False)
     size = String(required=False)
     city = String(required=False)
-    state = String(required=False)
-    postalcode = String(required=False)
+    imageURL = String(required=False)
+    detail = String(required=False)
+    category = String(required=False)
+    userId = Int(required=False)
 
 class BreedAttributes(object):
     id = ID(required=False)

@@ -1,5 +1,5 @@
 from database import Base
-from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, func, Enum
+from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, func, Enum, Text
 from sqlalchemy.orm import backref, relationship
 from sqlalchemy_utils import ChoiceType
 import graphene
@@ -23,13 +23,15 @@ class AnimalModel(Base):
     id = Column(Integer, primary_key=True)
     insertDate = Column(DateTime, default=func.now())
     name =  Column(String)
-    breed =  Column(String)
     gender = Column(Enum('female', 'male', name='gender'))
-    size = Column(String)
-    species = Column(Enum('dog', 'cat', name='specie'))
+    size = Column(Enum('small', 'medium', 'large', name='size'))
+    species = Column(Enum('dog', 'cat', 'bird', 'rodent', 'fish', 'reptile', name='specie'))
     city = Column(String)
-    state = Column(String)
-    postalcode = Column(String)
+    category = Column(Enum('found', 'lost', 'foster', name='category'))
+    imageURL = Column(String)
+    detail = Column(Text)
+    userId = Column(Integer)
+
 
 class BreedModel(Base):
     __tablename__ = 'breeds'
