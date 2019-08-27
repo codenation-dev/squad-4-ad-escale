@@ -1,4 +1,4 @@
-import reducer from '../pages/Login/reducer';
+import reducer from "../reducers";
 import thunk from "redux-thunk";
 import { createStore, applyMiddleware } from "redux";
 

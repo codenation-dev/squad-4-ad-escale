@@ -17,34 +17,34 @@
 }
 
 .menu-fechar {
-  width: 10px;
-  height: 10px;
+  width: 25px;
+  height: 25px;
   background-color: transparent;
   margin: 20px 250px 0;
 }
 
 .barra-nav,
 .menu-principal {
-    display: inline-block;
-    vertical-align: middle;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .menu-principal li {
-    float: left;
-    position: relative;
-    margin-right: 24px;
-    font-size: 12px;
-    color: #4D4C59;
-    cursor: pointer;
-    font-size: 16px;
+  float: left;
+  position: relative;
+  margin-right: 24px;
+  font-size: 12px;
+  color: #4D4C59;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .menu-principal a {
-    color: #fff;
-    text-decoration: none;
+  color: #fff;
+  text-decoration: none;
 }
 
 .menu-principal a:hover {
@@ -73,47 +73,48 @@
   .barra-nav {
     display: flex;
     flex-direction: column;
-      background: #35d1f8;
-      padding: 1em;
-      margin: 0;
-      height: 100%;
-      width: 90%;
-      max-width: 320px;
-      position: fixed;
-      z-index: 1;
-      top: 0;
-      right: -90%;
-      transition: right 0.3s ease-out;
+    background: #35d1f8;
+    padding: 1em;
+    margin: 0;
+    height: 100%;
+    width: 90%;
+    max-width: 320px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: -90%;
+    transition: right 0.3s ease-out;
   }
 
   .menu-ativo .barra-nav {
-      right: 0;
+    right: 0;
   }
 
   .menu-principal li {
-      padding: 1em 0;
-      width: 100%;
+    padding: 1em 0;
+    width: 100%;
   }
 
   .menu-ativo:after {
-        content: "";
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        background: rgba(0,0,0,0.4);
-    }
-    
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
   .nav-bar {
     position: absolute;
   }
 }
 
 @media not all and (max-width: 600px) {
-    .menu-abrir,
-    .menu-fechar {
-        display: none;
-    }
+
+  .menu-abrir,
+  .menu-fechar {
+    display: none;
+  }
 }

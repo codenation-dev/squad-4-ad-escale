@@ -2,11 +2,16 @@
     width: 150px;
     height: 30px;
     float: left;
-}   
+}
 
 .label {
     font-size: 1rem;
     color: #35d1f8;
     float: left;
-    margin-left: 5px
+    margin-left: 5px;
+    margin-right: 15px
+}
+
+.div-center {
+    padding: 0 15px 0 15px;
 }
