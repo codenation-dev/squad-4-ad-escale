@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import './search-navbar-item.css';
+import './item-selected.css';
 
 class SearchNavbarItem extends Component {
     render() {
-        let style = "search-navbar-item"
+        let style = "selected-item"
         if (this.props.isActive) {
-            style = "search-navbar-item-active"
+            style = "selected-item-active"
         }
         return (
             <h1 className={style} id={this.props.value} onClick={(e) => this.props.onClick(e)}>{this.props.text}</h1>

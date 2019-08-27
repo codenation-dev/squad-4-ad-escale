@@ -1,21 +1,18 @@
 import React, { Component } from 'react'
 import { Link, Route } from 'react-router-dom';
 import PetCard from '../../components/PetCard'
-import Header from '../../components/Header'
 import SearchCard from '../../components/SearchCard'
 import SearchNavbar from '../../components/SearchNavbar';
 import InputSearch from '../../components/InputSearch';
 import ButtonSearch from '../../components/ButtonSearch';
 import AdvancedButtonSearch from '../../components/AdvancedButtonSearch'
 import AdvancedSearch from '../AdvancedSearch';
-
-
-
+import Carousel from '../../components/Carousel'
 class Home extends Component {
     render() {
         return (
             <div>
-                <Header></Header>
+                <Carousel />  
                 <SearchCard>
                     <SearchNavbar></SearchNavbar>
                     <br></br>

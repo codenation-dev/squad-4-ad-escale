@@ -18,7 +18,7 @@ class Header extends Component {
         return (
             <div className="nav-bar">
                 <button type="button"
-                    className="btn btn-default btn-lg menu-abrir"
+                    className="menu-abrir"
                     onClick={this.openMenu}>
                     <IoIosMenu />
                 </button>
@@ -27,7 +27,7 @@ class Header extends Component {
                 </div>
                 <nav className="barra-nav">
                     <button type="button"
-                        className="btn btn-default btn-lg menu-fechar"
+                        className="menu-fechar"
                         onClick={this.closeMenu}>
                         X
                     </button>
