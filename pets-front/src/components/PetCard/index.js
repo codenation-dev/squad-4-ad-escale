@@ -1,11 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./pet-card.css";
 
 function PetCard({ pet, onSelectedCard }) {
   return (
     <>
-      <Link to={`/pet-detail/${pet.id}`} key={pet.id}>
+      <Link
+        to={`/pet-detail/${pet.id}`}
+        key={pet.id}
+        onClick={() => onSelectedCard(pet)}
+      >
         <div className="card">
           <img className="pet-image" src={pet.image} />
           <div className="pet-info">
