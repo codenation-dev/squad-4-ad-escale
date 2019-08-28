@@ -4,8 +4,10 @@ from database import db_session, init_db
 from flask import Flask
 from schema import schema
 from flask_graphql import GraphQLView
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 app.debug = True
 app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
