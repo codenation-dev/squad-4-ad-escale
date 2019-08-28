@@ -1,4 +1,4 @@
-import * as types from "./types";
+import * as types from "../pages/Register/types";
 
 const INITIAL_STATE = {
   isLogged: false,

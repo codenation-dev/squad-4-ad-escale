@@ -1,31 +1,21 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
-import './pet-card.css'
-import mock from '../../_assets/mock.json'
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "./pet-card.css";
 
-class PetCard extends Component {
-
-    render() {
-
-        return (
-          <>
-            <h2 className="h2-title">Últimos pets encontrados</h2>
-            <div className="all-cards">
-              {mock.results.map((pet) => (
-                <Link to={`/pet-detail/${pet.id}`} key={pet.id}>
-                  <div className="card">
-                      <img className='pet-image' src={pet.image}/>
-                    <div className="pet-info">
-                      <p className="pet-name">{pet.pet}</p>
-                      <p className="pet-name">{pet.city}</p>
-                    </div>
-                </div>
-               </Link>
-            ))}
+function PetCard({ pet, onSelectedCard }) {
+  return (
+    <>
+      <Link to={`/pet-detail/${pet.id}`} key={pet.id}>
+        <div className="card">
+          <img className="pet-image" src={pet.image} />
+          <div className="pet-info">
+            <p className="pet-name">{pet.pet}</p>
+            <p className="pet-name">{pet.city}</p>
           </div>
-        </>
-        )
-    }
+        </div>
+      </Link>
+    </>
+  );
 }
 
-export default PetCard
+export default PetCard;

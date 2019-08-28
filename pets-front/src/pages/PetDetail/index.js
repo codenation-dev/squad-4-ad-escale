@@ -13,14 +13,14 @@ const PetDetail = ({ match }) => {
            {pets.map((pet) => {
              return (
               <div className="pet-detail">
-                <div class="text-center">
+                <div className="text-center">
                   <img className='pet-image-detail' src={pet.image}/>
                 </div>
                 <div className="pet-description">
                   Raça {pet.gender} Filhote {pet.size}
                   <div className="pet-info-box">
                     <span>{pet.city}</span>
-                    <span class="badge badge-success">{pet.category}</span>
+                    <span className="badge badge-success">{pet.category}</span>
                   </div>
                 </div>
                 <section>
