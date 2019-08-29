@@ -1,8 +1,26 @@
 import * as types from "./types";
 
 export function selectCard(pet) {
-    return {
-        type: types.SELECT_CARD,
-        payload: pet
-    };
+  return {
+    type: types.SELECT_CARD,
+    payload: pet
+  };
+}
+
+export function getPets() {
+  return {
+    type: types.GET_PETS
+  };
+}
+
+export function getPetsSuccess() {
+  return {
+    type: types.SUCCESS_GET_PETS
+  };
+}
+
+export function getPetsFailed() {
+  return {
+    type: types.FAILED_GET_PETS
+  };
 }
