@@ -25,9 +25,9 @@ def init_db():
     Base.metadata.create_all(bind=engine)
 
     # Create the fixtures
-    tracy = Animal(name='tracy', species='dog', breed='collie')
+    tracy = Animal(name='tracy', species='dog', size='medium')
     db_session.add(tracy)
-    oliver = Animal(name='oliver', species='dog', breed='shitzu')
+    oliver = Animal(name='oliver', species='dog', size='small')
     db_session.add(oliver)
     duquesa = Animal(name='duquesa', species='cat')
     db_session.add(duquesa)
