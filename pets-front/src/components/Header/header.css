@@ -9,6 +9,7 @@
   top: 0;
   z-index: 28;
   width: 100%;
+  margin-bottom: 50px;
 }
 
 .menu-abrir {
@@ -108,6 +109,10 @@
 
   .nav-bar {
     position: absolute;
+  }
+
+  .navbar-brand {
+    margin-right: 15%;
   }
 }
 

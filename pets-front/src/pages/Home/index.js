@@ -8,8 +8,14 @@ import ButtonSearch from '../../components/ButtonSearch';
 import AdvancedButtonSearch from '../../components/AdvancedButtonSearch'
 import AdvancedSearch from '../AdvancedSearch';
 import Carousel from '../../components/Carousel'
-class Home extends Component {
-    render() {
+import { connect } from "react-redux";
+import { selectCard } from './actions';
+
+function Home({ pets, handleSelectedCard }) {
+  const onSelectedCard = pet => {
+    handleSelectedCard(pet);
+  };
+
         return (
             <div>
                 <Carousel />  
@@ -22,7 +28,14 @@ class Home extends Component {
                     <br></br>
                     <AdvancedButtonSearch></AdvancedButtonSearch>
                 </SearchCard>
-                <PetCard></PetCard>
+                <h2 className="h2-title">Últimos pets encontrados</h2>
+                
+                 <div className="all-cards">
+                    {pets.map(pet => (
+                        <PetCard onSelectedCard={onSelectedCard} key={pet.id} pet={pet} />
+                    ))}
+                </div>
+                
                 <div>
 
                 </div>
@@ -30,7 +43,21 @@ class Home extends Component {
 
 
         )
-    }
 }
 
-export default Home; 
+function mapStateToProps(state) {
+  return {
+    pets: state.pet.pets
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    handleSelectedCard: pet => dispatch(selectCard(pet))
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);
