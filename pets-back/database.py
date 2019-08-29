@@ -39,7 +39,7 @@ def init_db():
     db_session.add(user1)
     user2 = Users(name='Cynthia',username='cynthia',password='cynthia123',email='cynthia@gmail.com',phone='123131345',validation_question='Qual meu nome?',validation_answer='Cynthia')
     db_session.add(user2)
-    user3 = Users(name='Graziela',username='graziela',password='graziela123',email='lgraziela@gmail.com',phone='23432424',validation_question='Qual meu nome?',validation_answer='Graziela')
+    user3 = Users(name='Graziele',username='graziele',password='graziele123',email='graziele@gmail.com',phone='23432424',validation_question='Qual meu nome?',validation_answer='Graziele')
     db_session.add(user3)
 
     db_session.commit()
