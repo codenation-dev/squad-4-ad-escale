@@ -52,6 +52,9 @@ app.add_url_rule(
     "/graphql", view_func=GraphQLView.as_view("graphql", schema=schema, graphiql=True)
 )
 
+@app.route('/')
+def index():
+	return "Go to /graphql"
 
 @app.teardown_appcontext
 def shutdown_session(exception=None):
