@@ -14,7 +14,7 @@ export function getPets() {
     apiPets()
       .then(data => {
         console.log("data", data);
-        dispatch(getPetsSuccess(data.data.animals));
+        dispatch(getPetsSuccess(data.data));
       })
       .catch(() => dispatch(getPetsFailed()));
   };

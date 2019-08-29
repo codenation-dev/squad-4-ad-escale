@@ -32,7 +32,7 @@ class FormPet extends Component {
         return (
 
 
-            <form>
+            <form onSubmit={this.props.handleSubmit}>
 
                 <div className="row">
                     <p className="label">Tipo</p>
@@ -99,17 +99,17 @@ class FormPet extends Component {
                     <p className="label">Digite sua cidade</p>
                 </div>
                 <div className="row">
-                    <InputSearch placeholder="Ex: São Paulo" /> <br />
+                    <InputSearch placeholder="Ex: São Paulo" onChange={this.props.onChangeLocalization} value={localization} /> <br />
                 </div>
 
                 <div className="row row-margin">
                     <p className="label">Descrição</p>
                 </div>
                 <div className="row">
-                    <InputSearch placeholder="Descreva algo sobre o pet" /> <br />
+                    <InputSearch placeholder="Descreva algo sobre o pet" onChange={this.props.onChangeDescription} value={description} /> <br />
                 </div>
 
-                <ButtonSubmit />
+                <ButtonSubmit/>
 
             </form>
         )

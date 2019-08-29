@@ -13,9 +13,10 @@ export function getPets() {
   };
 }
 
-export function getPetsSuccess() {
+export function getPetsSuccess(pets) {
   return {
-    type: types.SUCCESS_GET_PETS
+    type: types.SUCCESS_GET_PETS,
+    payload: pets
   };
 }
 

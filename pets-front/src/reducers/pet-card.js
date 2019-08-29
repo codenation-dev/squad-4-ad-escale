@@ -24,7 +24,7 @@ export default function reducer(stateStore = INITIAL_STATE, action) {
       return {
         ...stateStore,
         loading: false,
-        pets: [],
+        pets: action.payload,
         message: ""
       };
     }

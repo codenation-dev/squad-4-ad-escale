@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from "react-router";
 import './pet-create.css';
 import FormPet from '../../components/FormPet'
 import { changeType, changeUrlImage, changeSize, changeGender, changeCategory, changeLocalization, changeDescription } from './actions';
+import * as thunks from './thunk';
+
+
 
 class PetCreate extends Component {
 
@@ -34,13 +38,19 @@ class PetCreate extends Component {
         this.props.dispatch(changeDescription(event.target.value));
     }
 
-    // handleCreate = (event) => {
-    //     this.props.dispatch(thunks.login(this.props));
-    // }
+    handleCreate = (event) => {
+        event.preventDefault();
+        this.props.dispatch(thunks.createPet(this.props));
+    }
 
 
     render() {
         const { type, urlImage, size, gender, category, localization, description, isCreated } = this.props;
+
+        if(isCreated != undefined && isCreated != false){
+            alert('Pet cadastrado!');
+            return <Redirect to="/" />
+        }
 
         return (
             <div className="div-center">
@@ -55,6 +65,7 @@ class PetCreate extends Component {
                     onChangeCategory={this.onChangeCategory}
                     onChangeLocalization={this.onChangeLocalization}
                     onChangeDescription={this.onChangeDescription}
+                    handleSubmit={this.handleCreate}
                 />
             </div >
 

@@ -17,13 +17,11 @@ import {
 } from "./actions";
 import * as thunks from "./thunk";
 
-class Home extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+class Home extends Component {
+
   componentDidMount() {
     console.log("props", this.props);
-    //this.props.dispatch(thunks.getPets());
+    this.props.dispatch(thunks.getPets());
   }
   render() {
     console.log(this.props);
@@ -46,9 +44,9 @@ class Home extends React.Component {
         <h2 className="h2-title">Últimos pets adicionados</h2>
 
         <div className="all-cards">
-          {/*pets.map(pet => (
+         { pets.map(pet => (
             <PetCard onSelectedCard={onSelectedCard} key={pet.id} pet={pet} />
-          ))*/}
+          ))}
         </div>
 
         <div></div>
@@ -63,13 +61,12 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    handleSelectedCard: pet => dispatch(selectCard(pet))
-  };
-}
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     handleSelectedCard: pet => dispatch(selectCard(pet))
+//   };
+// }
 
 export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(Home);

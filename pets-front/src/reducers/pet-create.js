@@ -35,31 +35,31 @@ export default function reducer(stateStore = INITIAL_STATE, action) {
         case types.CHANGE_GENDER: {
             return {
                 ...stateStore,
-                gender: action.type
+                gender: action.payload
             }
         }
         case types.CHANGE_CATEGORY: {
             return {
                 ...stateStore,
-                category: action.type
+                category: action.payload
             }
         }
         case types.CHANGE_LOCALIZATION: {
             return {
                 ...stateStore,
-                localization: action.type
+                localization: action.payload
             }
         }
         case types.CHANGE_DESCRIPTION: {
             return {
                 ...stateStore,
-                description: action.type
+                description: action.payload
             }
         }
         case types.CREATE_PET: {
             return {
                 ...stateStore,
-                isCreated: action.type
+                isCreated: action.payload
             }
         }
         default:

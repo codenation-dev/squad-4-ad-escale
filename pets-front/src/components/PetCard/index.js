@@ -13,7 +13,7 @@ function PetCard({ pet, onSelectedCard }) {
         <div className="card">
           <img className="pet-image" src={pet.image} />
           <div className="pet-info">
-            <p className="pet-name">{pet.pet}</p>
+            <p className="pet-name">{pet.name}</p>
             <p className="pet-name">{pet.city}</p>
           </div>
         </div>
