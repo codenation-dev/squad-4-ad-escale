@@ -35,7 +35,7 @@ class Home extends Component {
         <SearchCard>
           <SearchNavbar></SearchNavbar>
           <br></br>
-          <InputSearch placeholder="Digite a espécia ou a raça do pet" />
+          <InputSearch placeholder="Digite a espécie ou cidade do pet" />
           <br></br>
           <ButtonSearch></ButtonSearch>
           <br></br>

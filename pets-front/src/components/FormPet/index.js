@@ -15,7 +15,47 @@ const defaultOption = options[0]
 class FormPet extends Component {
     constructor(props) {
         super(props);
-        this.state = { picture: '', picturePreview: '' };
+        this.state = {
+            size: {
+                smallActive: false,
+                mediumActive: false,
+                bigActive: false
+            },
+            gender: {
+                maleActive: false,
+                femaleActive: false
+            },
+            category: {
+                findActive: false,
+                lostActive: false,
+                adoptionActive: false
+            }
+        }
+    }
+
+    onClickSize(event) {
+        if (event.target.value === "small") {
+            console.log(event.target);
+            this.setState({
+                smallActive: !this.state.size.smallActive,
+                mediumActive: false,
+                bigActive: false
+            })
+        }
+        else if (event.target.value === "medium") {
+            this.setState({
+                mediumActive: !this.state.size.mediumActive,
+                smallActive: false,
+                bigActive: false
+            })
+        }
+        else {
+            this.setState({
+                bigActive: !this.state.size.bigActive,
+                mediumActive: false,
+                smallActive: false
+            })
+        }
     }
 
     render() {
@@ -58,13 +98,28 @@ class FormPet extends Component {
                 </div>
                 <div className="row">
                     <div className="col-4">
-                        <ItemSelected text="Pequeno" />
+                        <ItemSelected 
+                        onChange={this.props.onChangeSize} 
+                        isActive={this.state.size.smallActive}
+                        onClick={this.onClickSize}
+                        value="small" 
+                        text="Pequeno" />
                     </div>
                     <div className="col-4">
-                        <ItemSelected text="Médio" />
+                        <ItemSelected 
+                        onChange={this.props.onChangeSize} 
+                        isActive={this.state.size.mediumActive}
+                        onClick={this.onClickSize}
+                        value="medium" 
+                        text="Médio" />
                     </div>
                     <div className="col-4">
-                        <ItemSelected text="Grande" />
+                        <ItemSelected 
+                        onChange={this.props.onChangeSize} 
+                        isActive={this.state.size.bigActive}
+                        onClick={this.onClickSize}
+                        value="big" 
+                        text="Grande" />
                     </div>
                 </div>
 
@@ -73,10 +128,10 @@ class FormPet extends Component {
                 </div>
                 <div className="row">
                     <div className="col-4">
-                        <ItemSelected text="Macho" />
+                        <ItemSelected onChange={this.props.onChangeGender} value="male" text="Macho" />
                     </div>
                     <div className="col-4">
-                        <ItemSelected text="Fêmea" />
+                        <ItemSelected onChange={this.props.onChangeGender} value="female" text="Fêmea" />
                     </div>
                 </div>
 
@@ -85,13 +140,13 @@ class FormPet extends Component {
                 </div>
                 <div className="row">
                     <div className="col-4">
-                        <ItemSelected text="Achado" />
+                        <ItemSelected onChange={this.props.onChangeCategory} value="find" text="Achado" />
                     </div>
                     <div className="col-4">
-                        <ItemSelected text="Perdido" />
+                        <ItemSelected onChange={this.props.onChangeCategory} value="lost" text="Perdido" />
                     </div>
                     <div className="col-4">
-                        <ItemSelected text="Adoção" />
+                        <ItemSelected onChange={this.props.onChangeCategory} value="adoption" text="Adoção" />
                     </div>
                 </div>
 

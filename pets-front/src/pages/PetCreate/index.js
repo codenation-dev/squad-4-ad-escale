@@ -6,9 +6,29 @@ import FormPet from '../../components/FormPet'
 import { changeType, changeUrlImage, changeSize, changeGender, changeCategory, changeLocalization, changeDescription } from './actions';
 import * as thunks from './thunk';
 
-
-
 class PetCreate extends Component {
+    constructor(props) {
+        super(props);
+
+        // this.state = {
+        //     size: {
+        //         smallActive: false,
+        //         mediumActive: false,
+        //         bigActive: false
+        //     },
+        //     gender: {
+        //         maleActive: false,
+        //         femaleActive: false
+        //     },
+        //     category: {
+        //         findActive: false,
+        //         lostActive: false,
+        //         adoptionActive: false
+        //     }
+        // }
+      
+    }
+
 
     onChangeType = (event) => {
         this.props.dispatch(changeType(event.value));
@@ -19,6 +39,7 @@ class PetCreate extends Component {
     }
 
     onChangeSize = (event) => {
+
         this.props.dispatch(changeSize(event.target.value));
     }
 
