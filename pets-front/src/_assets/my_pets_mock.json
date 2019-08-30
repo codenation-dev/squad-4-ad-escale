@@ -1,0 +1,28 @@
+{
+    "data": {
+        "animals": [{
+                "id": "2",
+                "species": "Cachorro",
+                "name": "Bolacha",
+                "category": "Encontrado",
+                "size": "Grande",
+                "city": "Guarulhos",
+                "gender": "Macho",
+                "details": "Achei esse lindo cachorro na rua",
+                "image": "https://catracalivre.com.br/wp-content/uploads/2015/05/vira-lata-adulto.jpg"
+            },
+
+            {
+                "id": "5",
+                "species": "Gato",
+                "name": "Robson",
+                "category": "Encontrado",
+                "size": "Pequeno",
+                "city": "São Paulo",
+                "gender": "Macho",
+                "details": "Esse lindo gatinho foi encontrado na rua",
+                "image": "https://www.purina.pt/sites/g/files/mcldtz1671/files/2018-02/imagem-gatos-adotados_0.jpg"
+            }
+        ]
+    }
+}
