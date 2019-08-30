@@ -18,9 +18,7 @@ import {
 import * as thunks from "./thunk";
 
 class Home extends Component {
-
   componentDidMount() {
-    console.log("props", this.props);
     this.props.dispatch(thunks.getPets());
   }
   render() {
@@ -44,7 +42,7 @@ class Home extends Component {
         <h2 className="h2-title">Últimos pets adicionados</h2>
 
         <div className="all-cards">
-         { pets.map(pet => (
+          {pets.map(pet => (
             <PetCard onSelectedCard={onSelectedCard} key={pet.id} pet={pet} />
           ))}
         </div>
@@ -67,6 +65,4 @@ function mapStateToProps(state) {
 //   };
 // }
 
-export default connect(
-  mapStateToProps
-)(Home);
+export default connect(mapStateToProps)(Home);

@@ -6,7 +6,7 @@ function PetCard({ pet, onSelectedCard }) {
   return (
     <>
       <Link
-        to={`/pet-detail/${pet.id}`}
+        to={`/pet/${pet.id}`}
         key={pet.id}
         onClick={() => onSelectedCard(pet)}
       >
