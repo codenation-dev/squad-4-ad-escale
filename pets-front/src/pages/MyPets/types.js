@@ -1,0 +1,4 @@
+export const GET_MY_PETS = "GET_MY_PETS";
+export const SUCCESS_GET_MY_PETS = "SUCCESS_GET_MY_PETS";
+export const FAILED_GET_MY_PETS = "FAILED_GET_MY_PETS";
+export const SELECT_CARD = "SELECT_CARD";
