@@ -1,5 +1,5 @@
 import * as types from "../pages/MyPets/types";
-import mock from "../_assets/mock.json";
+import mock from "../_assets/my_pets_mock.json";
 
 const INITIAL_STATE = {
   meuPet: mock.data.animals
