@@ -33,7 +33,8 @@ class App extends Component {
             <div>
 
                 {(this.props.location.pathname !== '/login' &&
-                    this.props.location.pathname !== '/forgotPassword') ? <Header /> : null}
+                    this.props.location.pathname !== '/forgotPassword' &&
+                    this.props.location.pathname !== '/advancedSearch') ? <Header /> : null}
 
                 <Route path="/" exact component={Home} />
 

@@ -55,3 +55,17 @@ export function creatPet(pet) {
         payload: pet
     };
 }
+
+export function creatPetSuccess(success) {
+    return {
+        type: types.CREATE_PET,
+        payload: success
+    };
+}
+
+export function creatPetFailed() {
+    return {
+        type: types.CREATE_PET
+    };
+}
+

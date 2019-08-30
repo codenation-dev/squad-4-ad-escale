@@ -8,7 +8,7 @@ class SearchNavbar extends Component {
         super(props);
 
         this.state = {
-            foundActive: false,
+            foundActive: true,
             lostActive: false,
             adoptionActive: false
         }

@@ -9,10 +9,17 @@
 }
 
 .align-center {
-    text-align: center; 
-    padding-bottom: 0
+    text-align: center;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
-.p-3{
+.align-center-active {
+    text-align: center;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.p-3 {
     padding: 0.2rem 1rem 0.2rem 1rem!important;
 }
