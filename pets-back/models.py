@@ -2,21 +2,7 @@ from database import Base
 from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, func, Enum, Text
 from sqlalchemy.orm import backref, relationship
 from sqlalchemy_utils import ChoiceType
-import graphene
 
-# GENDER_CHOICES = [
-#     (u'female', u'Fêmea'),
-#     (u'male', u'Macho')
-# ]
-
-# SPECIES_CHOICES = [
-#     (u'dog', u'Cão'),
-#     (u'cat', u'Gato'),
-#     (u'bird', u'Ave'),
-#     (u'rodent', u'Roedor'),
-#     (u'fish', u'Peixe'),
-#     (u'reptile', u'Réptil')
-# ]
 
 class AnimalModel(Base):
     __tablename__ = 'animals'
@@ -32,12 +18,6 @@ class AnimalModel(Base):
     detail = Column(Text)
     userId = Column(Integer)
 
-
-class BreedModel(Base):
-    __tablename__ = 'breeds'
-    id = Column(Integer, primary_key=True)
-    name =  Column(String)
-    specie = Column(String)
 
 class UserModel(Base):
     __tablename__ = 'users'
