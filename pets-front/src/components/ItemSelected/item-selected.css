@@ -16,8 +16,8 @@
 .selected-item-active {
     color: #2E2E37;
     font-size: 16px;
-    border-bottom: 1px solid #35D1F8;
-    border-radius: 1.5px;
+    border: 2px solid #35D1F8;
+    border-radius: 5px;
     justify-content: center;
     font-weight: 400;
     cursor: pointer;
@@ -25,7 +25,7 @@
     flex-wrap: wrap;
     margin: 0;
     cursor: pointer;
-    padding: 3px 20px 3px 20px;
+    padding: 10px 20px 10px 20px;
 }
 
 /* .search-navbar-item:active {

@@ -27,18 +27,18 @@ class AdvancedSearch extends Component {
     if (this.state.redirect) {
       return <Redirect to='/' />
     }
-    
+
 
     return (
-      <div>
+      <>
         <div className="row">
-          <div className="col col-11">
+          <div className="col-8">
             <p className="title">Busca Avançada</p>
           </div>
-          <div className="col col-1">
-            <button onClick={this.setRedirect}>
+          <div className="col-4">
+            <div onClick={this.setRedirect} className="close-button">
               <MdClose />
-            </button>
+            </div>
           </div>
         </div>
 
@@ -69,7 +69,7 @@ class AdvancedSearch extends Component {
         <div className="div-button-search">
           <ButtonSearch />
         </div>
-      </div>
+      </>
 
     )
   }

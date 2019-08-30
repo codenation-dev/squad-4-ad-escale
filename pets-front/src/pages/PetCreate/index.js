@@ -10,23 +10,6 @@ class PetCreate extends Component {
     constructor(props) {
         super(props);
 
-        // this.state = {
-        //     size: {
-        //         smallActive: false,
-        //         mediumActive: false,
-        //         bigActive: false
-        //     },
-        //     gender: {
-        //         maleActive: false,
-        //         femaleActive: false
-        //     },
-        //     category: {
-        //         findActive: false,
-        //         lostActive: false,
-        //         adoptionActive: false
-        //     }
-        // }
-      
     }
 
 
@@ -39,16 +22,15 @@ class PetCreate extends Component {
     }
 
     onChangeSize = (event) => {
-
-        this.props.dispatch(changeSize(event.target.value));
+        this.props.dispatch(changeSize(event.target.id));
     }
 
     onChangeGender = (event) => {
-        this.props.dispatch(changeGender(event.target.value));
+        this.props.dispatch(changeGender(event.target.id));
     }
 
     onChangeCategory = (event) => {
-        this.props.dispatch(changeCategory(event.target.value));
+        this.props.dispatch(changeCategory(event.target.id));
     }
 
     onChangeLocalization = (event) => {
@@ -68,7 +50,7 @@ class PetCreate extends Component {
     render() {
         const { type, urlImage, size, gender, category, localization, description, isCreated } = this.props;
 
-        if(isCreated != undefined && isCreated != false){
+        if (isCreated != undefined && isCreated != false) {
             alert('Pet cadastrado!');
             return <Redirect to="/" />
         }

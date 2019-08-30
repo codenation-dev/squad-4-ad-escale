@@ -3,7 +3,8 @@ import './item-selected.css';
 
 class SearchNavbarItem extends Component {
     render() {
-        let style = "selected-item"
+        let style = "selected-item";
+
         if (this.props.isActive) {
             style = "selected-item-active"
         }

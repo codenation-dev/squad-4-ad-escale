@@ -33,29 +33,96 @@ class FormPet extends Component {
         }
     }
 
-    onClickSize(event) {
-        if (event.target.value === "small") {
+    onClickSize = (event) => {
+        if (event.target.id === "small") {
             console.log(event.target);
             this.setState({
-                smallActive: !this.state.size.smallActive,
-                mediumActive: false,
-                bigActive: false
+                size: {
+                    smallActive: !this.state.size.smallActive,
+                    mediumActive: false,
+                    bigActive: false
+                }
+
             })
         }
-        else if (event.target.value === "medium") {
+        else if (event.target.id === "medium") {
             this.setState({
-                mediumActive: !this.state.size.mediumActive,
-                smallActive: false,
-                bigActive: false
+                size: {
+                    mediumActive: !this.state.size.mediumActive,
+                    smallActive: false,
+                    bigActive: false
+                }
             })
         }
         else {
             this.setState({
-                bigActive: !this.state.size.bigActive,
-                mediumActive: false,
-                smallActive: false
+                size: {
+                    bigActive: !this.state.size.bigActive,
+                    mediumActive: false,
+                    smallActive: false
+                }
+
             })
         }
+
+        this.props.onChangeSize(event);
+    }
+
+    onClickGender = (event) => {
+        if (event.target.id === "male") {
+            console.log(event.target);
+            this.setState({
+                gender: {
+                    maleActive: !this.state.gender.maleActive,
+                    femaleActive: false
+                }
+            })
+        }
+        else {
+            this.setState({
+                gender: {
+                    femaleActive: !this.state.gender.femaleActive,
+                    maleActive: false
+                }
+            })
+        }
+
+        this.props.onChangeGender(event);
+    }
+
+    onClickCategory = (event) => {
+        if (event.target.id === "find") {
+            console.log(event.target);
+            this.setState({
+                category: {
+                    findActive: !this.state.size.findActive,
+                    lostActive: false,
+                    adoptionActive: false
+                }
+
+            })
+        }
+        else if (event.target.id === "lost") {
+            this.setState({
+                category: {
+                    findActive: false,
+                    lostActive: !this.state.size.lostActive,
+                    adoptionActive: false
+                }
+            })
+        }
+        else {
+            this.setState({
+                category: {
+                    findActive: false,
+                    lostActive: false,
+                    adoptionActive: !this.state.size.adoptionActive
+                }
+
+            })
+        }
+
+        this.props.onChangeCategory(event);
     }
 
     render() {
@@ -85,12 +152,12 @@ class FormPet extends Component {
                     <p className="label">Cole o link da foto do pet</p>
                 </div>
                 <div className="row">
-                    <InputSearch 
-                    placeholder="Ex: https://www.petrolfordogs.com/wp-content/uploads/2018/01/pup-1.png"
-                     value={urlImage} 
-                     onChange={this.props.onChangeUrlImage}
-                     />
-                     
+                    <InputSearch
+                        placeholder="Ex: https://www.petrolfordogs.com/wp-content/uploads/2018/01/pup-1.png"
+                        value={urlImage}
+                        onChange={this.props.onChangeUrlImage}
+                    />
+
                 </div>
 
                 <div className="row row-margin" >
@@ -98,28 +165,25 @@ class FormPet extends Component {
                 </div>
                 <div className="row">
                     <div className="col-4">
-                        <ItemSelected 
-                        onChange={this.props.onChangeSize} 
-                        isActive={this.state.size.smallActive}
-                        onClick={this.onClickSize}
-                        value="small" 
-                        text="Pequeno" />
+                        <ItemSelected
+                            isActive={this.state.size.smallActive}
+                            onClick={this.onClickSize}
+                            value="small"
+                            text="Pequeno" />
                     </div>
                     <div className="col-4">
-                        <ItemSelected 
-                        onChange={this.props.onChangeSize} 
-                        isActive={this.state.size.mediumActive}
-                        onClick={this.onClickSize}
-                        value="medium" 
-                        text="Médio" />
+                        <ItemSelected
+                            isActive={this.state.size.mediumActive}
+                            onClick={this.onClickSize}
+                            value="medium"
+                            text="Médio" />
                     </div>
                     <div className="col-4">
-                        <ItemSelected 
-                        onChange={this.props.onChangeSize} 
-                        isActive={this.state.size.bigActive}
-                        onClick={this.onClickSize}
-                        value="big" 
-                        text="Grande" />
+                        <ItemSelected
+                            isActive={this.state.size.bigActive}
+                            onClick={this.onClickSize}
+                            value="big"
+                            text="Grande" />
                     </div>
                 </div>
 
@@ -128,10 +192,18 @@ class FormPet extends Component {
                 </div>
                 <div className="row">
                     <div className="col-4">
-                        <ItemSelected onChange={this.props.onChangeGender} value="male" text="Macho" />
+                        <ItemSelected
+                            isActive={this.state.gender.maleActive}
+                            onClick={this.onClickGender}
+                            value="male"
+                            text="Macho" />
                     </div>
                     <div className="col-4">
-                        <ItemSelected onChange={this.props.onChangeGender} value="female" text="Fêmea" />
+                        <ItemSelected
+                            isActive={this.state.gender.femaleActive}
+                            onClick={this.onClickGender}
+                            value="female"
+                            text="Fêmea" />
                     </div>
                 </div>
 
@@ -140,13 +212,25 @@ class FormPet extends Component {
                 </div>
                 <div className="row">
                     <div className="col-4">
-                        <ItemSelected onChange={this.props.onChangeCategory} value="find" text="Achado" />
+                        <ItemSelected
+                            isActive={this.state.category.findActive}
+                            onClick={this.onClickCategory}
+                            value="find"
+                            text="Achado" />
                     </div>
                     <div className="col-4">
-                        <ItemSelected onChange={this.props.onChangeCategory} value="lost" text="Perdido" />
+                        <ItemSelected
+                            isActive={this.state.category.lostActive}
+                            onClick={this.onClickCategory}
+                            value="lost"
+                            text="Perdido" />
                     </div>
                     <div className="col-4">
-                        <ItemSelected onChange={this.props.onChangeCategory} value="adoption" text="Adoção" />
+                        <ItemSelected
+                            isActive={this.state.category.adoptionActive}
+                            onClick={this.onClickCategory}
+                            value="adoption"
+                            text="Adoção" />
                     </div>
                 </div>
 
@@ -164,7 +248,7 @@ class FormPet extends Component {
                     <InputSearch placeholder="Descreva algo sobre o pet" onChange={this.props.onChangeDescription} value={description} /> <br />
                 </div>
 
-                <ButtonSubmit/>
+                <ButtonSubmit />
 
             </form>
         )
