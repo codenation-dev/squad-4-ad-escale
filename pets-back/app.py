@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import os
-from database import db_session, init_db
+from database import db_session
 from flask import Flask
 from schema import schema
 from flask_graphql import GraphQLView
@@ -62,5 +62,4 @@ def shutdown_session(exception=None):
 
 
 if __name__ == "__main__":
-    init_db()
     app.run()
