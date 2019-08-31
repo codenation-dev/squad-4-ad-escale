@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import './advanced-search.css';
 import { Redirect } from 'react-router-dom';
 import SearchNavbar from '../../components/SearchNavbar'
@@ -9,12 +11,50 @@ import InputLocalization from '../../components/InputLocalization';
 import InputDate from '../../components/InputDate';
 import ButtonSearch from '../../components/ButtonSearch'
 import { MdClose } from "react-icons/md";
+import { changeType, changeSize, changeGender, changeCategory, changeLocalization, changeStartDate, changeEndDate } from './actions';
+import * as thunks from './thunk';
 
 class AdvancedSearch extends Component {
 
   state = {
     redirect: false
   }
+
+  onChangeType = (event) => {
+    this.props.dispatch(changeType(event.value));
+  }
+
+  onChangeSize = (event) => {
+    this.props.dispatch(changeSize(event.target.id));
+  }
+
+  onChangeGender = (event) => {
+    this.props.dispatch(changeGender(event.target.id));
+  }
+
+  onChangeCategory = (event) => {
+    this.props.dispatch(changeCategory(event.target.id));
+  }
+
+  onChangeLocalization = (event) => {
+    this.props.dispatch(changeLocalization(event.target.value));
+  }
+
+  onChangeStartDate = (event) => {
+    this.props.dispatch(changeStartDate(event.target.value));
+  }
+
+  onChangeEndDate = (event) => {
+    this.props.dispatch(changeEndDate(event.target.value));
+  }
+
+  onSubmit = (event) => {
+    event.preventDefault();
+    this.props.dispatch(thunks.searchPets(this.props));
+
+  }
+
+
 
   setRedirect = () => {
     this.setState({
@@ -27,52 +67,78 @@ class AdvancedSearch extends Component {
     if (this.state.redirect) {
       return <Redirect to='/' />
     }
-    
 
     return (
-      <div>
+      <>
         <div className="row">
-          <div className="col col-11">
+          <div className="col-8">
             <p className="title">Busca Avançada</p>
           </div>
-          <div className="col col-1">
-            <button onClick={this.setRedirect}>
+          <div className="col-4">
+            <div onClick={this.setRedirect} className="close-button">
               <MdClose />
-            </button>
+            </div>
           </div>
         </div>
 
-        <SearchNavbar></SearchNavbar>
+
+        <SearchNavbar onChange={this.onChangeCategory}></SearchNavbar>
         <br></br>
+
         <p className="subtitle">Espécie</p>
-        <SpeciesList />
+        <SpeciesList onChange={this.onChangeType}
+        />
+
         <hr className="horizontal-line" />
         <p className="subtitle">Gênero</p>
-        <GenderList />
+        <GenderList onChange={this.onChangeGender} />
+
         <hr className="horizontal-line" />
         <p className="subtitle">Porte</p>
-        <SizeList />
+        <SizeList onChange={this.onChangeSize} />
+
         <hr className="horizontal-line" />
         <p className="subtitle">Localização</p>
-        <InputLocalization placeholder="Digite sua cidade" />
+        <InputLocalization placeholder="Digite sua cidade" onChange={this.onChangeLocalization} />
+
         <hr className="horizontal-line" />
         <p className="subtitle">Data da postagem</p>
         <div className="row">
           <div className="col col-6">
-            <InputDate placeholder="De" />
+            <InputDate placeholder="De" onChange={this.onChangeStartDate} />
           </div>
           <div className="col col-6">
-            <InputDate placeholder="Até" />
+            <InputDate placeholder="Até" onChange={this.onChangeEndDate} />
           </div>
         </div>
 
-        <div className="div-button-search">
-          <ButtonSearch />
-        </div>
-      </div>
+        <Link to={`/pet-search/cat`} >
+          <div className="div-button-search">
+
+            <ButtonSearch />
+
+          </div>
+        </Link>
+
+      </>
 
     )
   }
 }
 
-export default AdvancedSearch; 
+function mapStateToProps(state) {
+  console.log(state.advancedSearch);
+  return {
+    pets: state.advancedSearch.pets,
+    category: state.advancedSearch.category,
+    type: state.advancedSearch.type,
+    gender: state.advancedSearch.gender,
+    size: state.advancedSearch.size,
+    localization: state.advancedSearch.localization,
+    startDate: state.advancedSearch.startDate,
+    endDate: state.advancedSearch.endDate,
+    success: state.advancedSearch.sucess
+  }
+}
+
+export default connect(mapStateToProps)(AdvancedSearch); 

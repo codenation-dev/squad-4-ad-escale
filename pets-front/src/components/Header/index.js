@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import "./header.css";
 import logopetcodes from "../../_assets/img/logo-petcodes.png";
 import { IoIosMenu } from "react-icons/io";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 class Header extends Component {
   render() {
+    const { isLogged } = this.props;
     this.openMenu = () => {
       document.documentElement.classList.add("menu-ativo");
     };
@@ -20,7 +22,9 @@ class Header extends Component {
           <IoIosMenu size={25} />
         </button>
         <div href="#" className="navbar-brand">
-          <img src={logopetcodes} alt="Logo" className="navbar-logo" />
+          <Link to="/">
+            <img src={logopetcodes} alt="Logo" className="navbar-logo" />
+          </Link>
         </div>
         <nav className="barra-nav">
           <button
@@ -32,11 +36,32 @@ class Header extends Component {
           </button>
           <ul className="menu-principal">
             <li>
-            {/* TODO - Add opção de logout quando isLogged*/}
-              <Link to="/login">
-                Login
-              </Link>
+              <Link to="/">Home</Link>
             </li>
+            {!isLogged ? (
+              <>
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+                <li>
+                  <Link to="/register">Cadastrar</Link>
+                </li>
+              </>
+            ) : null}
+
+            {isLogged ? (
+              <>
+                <li>
+                  <Link to="/profile">Perfil</Link>
+                </li>
+                <li>
+                  <Link to="/my-pets">Meus Pets</Link>
+                </li>
+                <li>
+                  <Link to="/pet-create">Add Pet</Link>
+                </li>
+              </>
+            ) : null}
           </ul>
         </nav>
       </div>
@@ -44,4 +69,10 @@ class Header extends Component {
   }
 }
 
-export default Header;
+function mapStateToProps(state) {
+  return {
+    isLogged: state.login.isLogged
+  };
+}
+
+export default connect(mapStateToProps)(Header);

@@ -2,6 +2,7 @@
     font-weight: 300;
     text-align: center;
     margin-top: 5px;
+    float: right;
 }
 
 .subtitle {
@@ -21,10 +22,16 @@
 
 .div-button-search {
     text-align: center;
-    margin: 15px 0 15px 0;     
+    margin: 15px 0 15px 0;
+}
+
+.close-button {
+    float: right;
+    margin: 3px 5px 0 0;
 }
 
 /* For mobile phones: */
+
 [class*="col-"] {
     width: auto;
 }

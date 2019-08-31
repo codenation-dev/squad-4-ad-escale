@@ -13,7 +13,7 @@ function MyModal({ showModal, onCloseModal, title, message }) {
       </Modal.Body>
 
       <Modal.Footer>
-        <Button onClick={onCloseModal} variant="primary">
+        <Button onClick={(e) => onCloseModal(e)} variant="primary">
           OK
         </Button>
       </Modal.Footer>

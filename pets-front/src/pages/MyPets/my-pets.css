@@ -1,0 +1,20 @@
+.page-title {
+  color: cadetblue;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.delete {
+  background-color: crimson;
+  width: 70px;
+  height: 30px;
+}
+
+.edit {
+  background-color: cornflowerblue;
+  width: 70px;
+  height: 30px;
+}

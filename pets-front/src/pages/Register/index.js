@@ -11,9 +11,19 @@ import {
   changeEmail,
   changePassword
 } from "./actions";
+import Modal from "../../components/Modal"
 import * as thunks from "./thunk";
 
 class Register extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showModal: false,
+      redirect: false
+    }
+  }
+
   onChangeUsername = event => {
     this.props.dispatch(changeUsername(event.target.value));
   };
@@ -30,7 +40,25 @@ class Register extends Component {
     this.props.dispatch(changePassword(event.target.value));
   };
 
+  handleShowModal = (event) => {
+    event.preventDefault();
+
+    this.setState({ showModal: !this.state.showModal });
+
+    if (this.state.showModal === true) {
+      this.setState({
+        redirect: true
+      })
+    }
+  };
+
   handleRegister = event => {
+    event.preventDefault();
+
+    this.setState({
+      showModal: true
+    })
+
     this.props.dispatch(
       thunks.register(
         this.props.username,
@@ -51,44 +79,47 @@ class Register extends Component {
       tryLogin
     } = this.props;
 
-    if (isLogged) return <Redirect to="/" />;
-    if (!isLogged && tryLogin) {
-      return <p></p>; //<Modal showModal={true} title="Falha" message="E-mail e/ou senha incorretos." />
+
+    if (this.state.redirect) {
+      return <Redirect to="/login" />;
     }
 
     return (
       <div className="div-center">
+        <Modal showModal={this.state.showModal} onCloseModal={this.handleShowModal}
+
+          title="Cadastrado"
+          message="Seu cadastro foi realizado com sucesso." />
+
         <p className="p-title">Cadastre-se</p>
 
-        <form>
-          <InputLine
-            placeholder="Nome"
-            value={username}
-            onChange={this.onChangeUsername}
-          />
+        <InputLine
+          placeholder="Nome"
+          value={username}
+          onChange={this.onChangeUsername}
+        />
 
-          <InputLine
-            placeholder="Telefone"
-            value={telephone}
-            onChange={this.onChangeTelephone}
-          />
+        <InputLine
+          placeholder="Telefone"
+          value={telephone}
+          onChange={this.onChangeTelephone}
+        />
 
-          <InputLine
-            placeholder="E-mail"
-            value={email}
-            onChange={this.onChangeEmail}
-          />
+        <InputLine
+          placeholder="E-mail"
+          value={email}
+          onChange={this.onChangeEmail}
+        />
 
-          <InputLinePassword
-            placeholder="Senha"
-            value={password}
-            onChange={this.onChangePassword}
-          />
+        <InputLinePassword
+          placeholder="Senha"
+          value={password}
+          onChange={this.onChangePassword}
+        />
 
-          <InputLinePassword placeholder="Confirme sua senha" />
+        <InputLinePassword placeholder="Confirme sua senha" />
 
-          <ButtonSubmit onClick={this.handleRegister} />
-        </form>
+        <ButtonSubmit onClick={this.handleRegister} />
       </div>
     );
   }
@@ -101,8 +132,7 @@ function mapStateToProps(state) {
     telephone: state.telephone,
     email: state.email,
     password: state.password,
-    isLogged: state.isLogged,
-    tryLogin: state.tryLogin
+    success: state.sucess
   };
 }
 

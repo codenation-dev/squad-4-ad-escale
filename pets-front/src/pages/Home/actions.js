@@ -7,6 +7,15 @@ export function selectCard(pet) {
   };
 }
 
+export function changeSearch(searchText) {
+  return {
+    type: types.CHANGE_SEARCH,
+    payload: searchText
+
+  };
+}
+
+
 export function getPets() {
   return {
     type: types.GET_PETS

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Carousel } from 'react-bootstrap';
+import carousel1 from "../../_assets/img/carousel1.png";
+import carousel2 from "../../_assets/img/carousel2.png";
+import carousel3 from "../../_assets/img/carousel3.png";
 
 class MyCarousel extends Component {
 
@@ -9,36 +12,36 @@ class MyCarousel extends Component {
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="holder.js/800x400?text=First slide&bg=373940"
+                        src={carousel1}
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h4>Onde os animais de estimação encontram pessoas</h4>
+                        <p>Encontre o dono do animalzinho perdido.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="holder.js/800x400?text=Second slide&bg=282c34"
+                        src={carousel2}
                         alt="Third slide"
                     />
 
                     <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3>Conectamos você ao seu bichinho</h3>
+                        <p>Encontre seu animal perdido.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
-                        src="holder.js/800x400?text=Third slide&bg=20232a"
+                        src={carousel3}
                         alt="Third slide"
                     />
 
                     <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h3>Animais estão procurando pessoas</h3>
+                        <p>Vários tipos de animais de estimação para adoção.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>

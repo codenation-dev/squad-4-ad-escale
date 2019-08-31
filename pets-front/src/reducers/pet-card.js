@@ -1,5 +1,4 @@
 import * as types from "../pages/Home/types";
-import mock from "../_assets/mock.json";
 
 const INITIAL_STATE = {
   pets: [],
@@ -34,6 +33,12 @@ export default function reducer(stateStore = INITIAL_STATE, action) {
         loading: false,
         pets: [],
         message: "Falha ao carregar os PETS"
+      };
+    }
+    case types.CHANGE_SEARCH: {
+      return {
+        ...stateStore,
+        searchText: action.payload
       };
     }
 

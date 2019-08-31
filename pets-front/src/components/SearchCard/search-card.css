@@ -7,27 +7,28 @@
   border-radius: 10px;
   box-shadow: 0 8px 20px 0 rgba(158, 184, 209, 0.43);
   text-align: center;
-  margin: 80px auto 32px auto;
-  
+  margin: 20px auto 32px auto;
 }
 
 /* For mobile phones: */
+
 [class*="col-"] {
-    width: 100%;
+  width: 100%;
 }
 
 /* For desktop: */
+
 @media only screen and (min-width: 768px) {
-    .search-card {
-        max-width: 1024px;
-        width: 100%;
-        max-height: 250px;
-        padding: 20px;
-        overflow: hidden;
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 8px 20px 0 rgba(158, 184, 209, 0.43);
-        text-align: center;
-        margin: 80px auto 32px auto;
-      }
+  .search-card {
+    max-width: 1024px;
+    width: 100%;
+    max-height: 250px;
+    padding: 20px;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px 0 rgba(158, 184, 209, 0.43);
+    text-align: center;
+    margin: 80px auto 32px auto;
+  }
 }

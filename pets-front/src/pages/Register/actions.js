@@ -35,10 +35,10 @@ export function register(isLogged) {
   };
 }
 
-export function registerSuccess(isLogged) {
+export function registerSuccess(success) {
   return {
     type: types.REGISTER_SUCCESS,
-    payload: isLogged
+    payload: success
   };
 }
 export function registerFailed() {

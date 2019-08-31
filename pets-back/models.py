@@ -2,6 +2,7 @@ from database import Base
 from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, func, Enum, Text
 from sqlalchemy.orm import backref, relationship
 from sqlalchemy_utils import ChoiceType
+import graphene
 
 
 class AnimalModel(Base):
