@@ -4,7 +4,7 @@ import './button-submit.css';
 class ButtonSubmit extends Component {
     render() {
         return (
-            <button className="button-submit">
+            <button className="button-submit" onClick={(e) => this.props.onClick(e)}>
                 Enviar
             </button>
         )

@@ -11,7 +11,7 @@ export function register(parameters) {
     apiRegister(parameters)
       .then(data => {
         console.log(data.data[0]);
-        dispatch(registerSuccess(data.data));
+        dispatch(registerSuccess(data.data[0].success));
       })
       .catch(() => dispatch(registerFailed()));
   };

@@ -10,7 +10,7 @@
                 "size": "Pequeno",
                 "city": "São Paulo",
                 "gender": "Macho",
-                "details": "Esse lindo gatinho foi encontrado na rua",
+                "details": "Esse lindo cachorrinho foi encontrado na rua, estava assustado.",
                 "image": "https://www.ocregister.com/wp-content/uploads/2019/04/0428-REAL-HOAHOMEFRONT-DOGS-1.jpg?w=523"
             },
             {
@@ -22,7 +22,7 @@
                 "size": "Grande",
                 "city": "Guarulhos",
                 "gender": "Macho",
-                "details": "Esse lindo cachorrinho foi encontrado na rua",
+                "details": "Esse lindo cachorrinho foi encontrado na rua, estava assustado.",
                 "image": "https://www.guidedogs.org/wp-content/uploads/2018/01/Mobile.jpg"
             },
             {
@@ -30,11 +30,11 @@
                 "species": "Cachorro",
                 "name": "Bu",
                 "date": "25/03/2019",
-                "category": "Encontrado",
+                "category": "Perdido",
                 "size": "Pequeno",
                 "city": "São Bernando do Campo",
                 "gender": "Fêmea",
-                "details": "Esse lindo coelhinho foi encontrado na rua",
+                "details": "Ele se soltou da coleira, e correu pra em longe.",
                 "image": "https://vets-now.s3.amazonaws.com/uploads/2017/01/Dog-laboured-breathing-Vets-Now.jpg"
             },
             {
@@ -42,11 +42,11 @@
                 "species": "Cachorro",
                 "name": "Julieta",
                 "date": "09/05/2019",
-                "category": "Encontrado",
+                "category": "Adoção",
                 "size": "Pequeno",
                 "city": "Santo André",
                 "gender": "Fêmea",
-                "details": "Esse lindo porquinho da India foi encontrado na rua",
+                "details": "Esse lindo cachorinho está a procura de um dono, já está com todas as vacinas.",
                 "image": "https://s3.amazonaws.com/cdn-origin-etr.akc.org/wp-content/uploads/2017/11/13002253/GettyImages-521536928-_1_.jpg"
             },
             {
@@ -54,11 +54,11 @@
                 "species": "Cachorro",
                 "name": "Robson",
                 "date": "21/04/2019",
-                "category": "Encontrado",
+                "category": "Perdido",
                 "size": "Pequeno",
                 "city": "Mauá",
                 "gender": "Macho",
-                "details": "Esse lindo gatinho foi encontrado na rua",
+                "details": "Ele se soltou da coleira, e correu pra em longe.",
                 "image": "https://wtop.com/wp-content/uploads/2019/07/Daisy_3-1481x1254.jpeg"
             },
             {
@@ -66,11 +66,11 @@
                 "species": "Cachorro",
                 "name": "Robson",
                 "date": "15/06/2019",
-                "category": "Encontrado",
+                "category": "Adoção",
                 "size": "Pequeno",
                 "city": "São Paulo",
                 "gender": "Macho",
-                "details": "Esse lindo gatinho foi encontrado na rua",
+                "details": "Esse lindo cachorinho está a procura de um dono, já está com todas as vacinas.",
                 "image": "https://i2.wp.com/metro.co.uk/wp-content/uploads/2018/04/sei_7959691.jpg?quality=90&strip=all&zoom=1&resize=644%2C853&ssl=1"
             },
             {
@@ -82,7 +82,7 @@
                 "size": "Pequeno",
                 "city": "São Paulo",
                 "gender": "Macho",
-                "details": "Esse lindo gatinho foi encontrado na rua",
+                "details": "Esse lindo cahorrinho foi encontrado na rua",
                 "image": "https://khn.org/wp-content/uploads/sites/2/2019/06/HighDogs1.jpg"
             },
             {
@@ -90,11 +90,11 @@
                 "species": "Cachorro",
                 "name": "Robson",
                 "date": "12/04/2019",
-                "category": "Encontrado",
+                "category": "Perdido",
                 "size": "Pequeno",
                 "city": "São Caetano",
                 "gender": "Macho",
-                "details": "Esse lindo gatinho foi encontrado na rua",
+                "details": "Esse lindo cahorrinho está perdido",
                 "image": "https://g77v3827gg2notadhhw9pew7-wpengine.netdna-ssl.com/wp-content/uploads/2018/11/DogFt11-1024x682.jpg"
             }
         ]

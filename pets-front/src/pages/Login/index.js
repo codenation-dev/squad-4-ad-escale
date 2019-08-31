@@ -4,6 +4,7 @@ import { Redirect } from "react-router";
 import { connect } from "react-redux";
 import { changeUsername, changePassword } from "./actions";
 import InputLine from "../../components/InputLine";
+import InputLinePassword from "../../components/InputLinePassword"
 import ButtonLogin from "../../components/ButtonLogin";
 import Modal from "../../components/Modal";
 import logo from "../../_assets/img/logo-login.png";
@@ -58,7 +59,7 @@ class Login extends Component {
           />
         </div>
         <div className="div-input">
-          <InputLine
+          <InputLinePassword
             placeholder="Senha"
             value={password}
             onChange={this.onChangePassword}
@@ -67,8 +68,8 @@ class Login extends Component {
         {loginFailed ? (
           <p className="p-login">E-mail e/ou senha incorretos.</p>
         ) : (
-          <p></p>
-        )}
+            <p></p>
+          )}
         <div className="div-right">
           <Link to="/forgotPassword">
             <p className="p-link">Esqueceu sua senha?</p>
