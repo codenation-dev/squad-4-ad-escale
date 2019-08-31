@@ -59,6 +59,15 @@ class PetCreate extends Component {
 
   handleShowModal = () => {
     this.setState({ showModal: !this.state.showModal });
+
+    this.setState({ showModal: !this.state.showModal });
+
+    if (this.state.showModal === true) {
+      this.setState({
+        redirect: true
+      })
+    }
+
   };
 
   render() {
@@ -73,8 +82,8 @@ class PetCreate extends Component {
       isCreated
     } = this.props;
 
-    if (isCreated != undefined && isCreated != false) {
-      return <Redirect to="/" />;
+    if (this.state.redirect === true) {
+      return <Redirect to="/my-pets" />;
     }
 
     return (

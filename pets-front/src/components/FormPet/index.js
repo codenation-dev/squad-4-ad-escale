@@ -248,7 +248,7 @@ class FormPet extends Component {
                     <InputSearch placeholder="Descreva algo sobre o pet" onChange={this.props.onChangeDescription} value={description} /> <br />
                 </div>
 
-                <ButtonSubmit />
+                <ButtonSubmit onClick={this.props.handleSubmit} />
 
             </form>
         )
