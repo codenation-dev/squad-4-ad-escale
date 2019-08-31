@@ -49,13 +49,6 @@ export function changeEndDate(date) {
     };
 }
 
-export function changeDescription(description) {
-    return {
-        type: types.CHANGE_DESCRIPTION,
-        payload: description
-    };
-}
-
 export function searchPet(pet) {
     return {
         type: types.SEARCH_PET,
@@ -66,11 +59,11 @@ export function searchPet(pet) {
 export function searchPetSuccess(pets) {
     return {
         type: types.SEARCH_PET_SUCCESS,
-        payload: success
+        payload: pets
     };
 }
 
-export function creatPetFailed() {
+export function searchPetFailed() {
     return {
         type: types.SEARCH_PET_FAILED
     };

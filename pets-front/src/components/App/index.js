@@ -46,8 +46,8 @@ class App extends Component {
 
                 <Route path="/pet-detail/:id" exact component={PetDetail} />
 
-                <Route path="/pet-search/:search" exact component={PetSearch} />
-
+                <Route path="/pet-search/" exact component={PetSearch} />
+                
                 <Route path="/profile" exact component={Profile} />
 
                 <Route path="/pet-create" exact component={PetCreate} />

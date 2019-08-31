@@ -12,9 +12,9 @@ class TypeListItem extends Component {
         }
 
         return (
-            <div className={style}>
-                <img className="icon-list" src={this.props.image} />
-                <p>{this.props.text}</p>
+            <div className={style} id={this.props.value} onClick={(e) => this.props.onClick(e)} >
+                <img className="icon-list" src={this.props.image} id={this.props.value} onClick={(e) => this.props.onClick(e)}/>
+                <p id={this.props.value}>{this.props.text}</p>
             </div>
         )
     }

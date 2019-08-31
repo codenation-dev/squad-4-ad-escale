@@ -1,17 +1,28 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { withRouter } from 'react-router';
 import mock from '../../_assets/mock.json'
 import PetCard from '../../components/PetCard'
 import './pet-search.css';
 
-const PetSearch = ({ match }) => {
+class PetSearch extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      pets: []
+    }
+  }
+
+  render() {
     return (
       <div className="search-container">
-        <h2>Resultados da busca</h2>
+        <h4>Resultados da busca</h4>
         <PetCard />
       </div>
     );
+  }
+
 }
 
 export default withRouter(PetSearch);

@@ -1,4 +1,4 @@
-import * as types from "../pages/Home/types";
+import * as types from "../pages/AdvancedSearch/types";
 
 const INITIAL_STATE = {
     category: 0,
@@ -10,7 +10,7 @@ const INITIAL_STATE = {
     endDate: ""
 };
 
-export default function (stateStore = INITIAL_STATE, action) {
+export default function reducer(stateStore = INITIAL_STATE, action) {
     switch (action.type) {
         case types.CHANGE_CATEGORY: {
             return {
@@ -60,5 +60,7 @@ export default function (stateStore = INITIAL_STATE, action) {
                 isSearched: action.payload
             }
         }
+        default:
+            return stateStore;
     }
 }

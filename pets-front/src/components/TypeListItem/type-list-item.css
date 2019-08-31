@@ -12,12 +12,17 @@
     text-align: center;
     padding-bottom: 0;
     margin-bottom: 0;
+    cursor: pointer;
 }
 
 .align-center-active {
     text-align: center;
     padding-bottom: 0;
     margin-bottom: 0;
+    border-radius: 3px;
+    border: 2px solid #35D1F8;
+    padding:0;
+    cursor: pointer;
 }
 
 .p-3 {

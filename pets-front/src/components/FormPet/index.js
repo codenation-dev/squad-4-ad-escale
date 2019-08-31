@@ -33,7 +33,6 @@ class FormPet extends Component {
         }
     }
 
-<<<<<<< HEAD
     onClickSize = (event) => {
         if (event.target.id === "small") {
             console.log(event.target);
@@ -110,27 +109,10 @@ class FormPet extends Component {
                     lostActive: !this.state.size.lostActive,
                     adoptionActive: false
                 }
-=======
-    onClickSize(event) {
-        if (event.target.value === "small") {
-            console.log(event.target);
-            this.setState({
-                smallActive: !this.state.size.smallActive,
-                mediumActive: false,
-                bigActive: false
-            })
-        }
-        else if (event.target.value === "medium") {
-            this.setState({
-                mediumActive: !this.state.size.mediumActive,
-                smallActive: false,
-                bigActive: false
->>>>>>> 22738f1dda802e757bc9f6b9783a37fb47c6f21c
             })
         }
         else {
             this.setState({
-<<<<<<< HEAD
                 category: {
                     findActive: false,
                     lostActive: false,
@@ -141,13 +123,6 @@ class FormPet extends Component {
         }
 
         this.props.onChangeCategory(event);
-=======
-                bigActive: !this.state.size.bigActive,
-                mediumActive: false,
-                smallActive: false
-            })
-        }
->>>>>>> 22738f1dda802e757bc9f6b9783a37fb47c6f21c
     }
 
     render() {
@@ -190,7 +165,6 @@ class FormPet extends Component {
                 </div>
                 <div className="row">
                     <div className="col-4">
-<<<<<<< HEAD
                         <ItemSelected
                             isActive={this.state.size.smallActive}
                             onClick={this.onClickSize}
@@ -210,30 +184,6 @@ class FormPet extends Component {
                             onClick={this.onClickSize}
                             value="big"
                             text="Grande" />
-=======
-                        <ItemSelected 
-                        onChange={this.props.onChangeSize} 
-                        isActive={this.state.size.smallActive}
-                        onClick={this.onClickSize}
-                        value="small" 
-                        text="Pequeno" />
-                    </div>
-                    <div className="col-4">
-                        <ItemSelected 
-                        onChange={this.props.onChangeSize} 
-                        isActive={this.state.size.mediumActive}
-                        onClick={this.onClickSize}
-                        value="medium" 
-                        text="Médio" />
-                    </div>
-                    <div className="col-4">
-                        <ItemSelected 
-                        onChange={this.props.onChangeSize} 
-                        isActive={this.state.size.bigActive}
-                        onClick={this.onClickSize}
-                        value="big" 
-                        text="Grande" />
->>>>>>> 22738f1dda802e757bc9f6b9783a37fb47c6f21c
                     </div>
                 </div>
 
@@ -242,7 +192,6 @@ class FormPet extends Component {
                 </div>
                 <div className="row">
                     <div className="col-4">
-<<<<<<< HEAD
                         <ItemSelected
                             isActive={this.state.gender.maleActive}
                             onClick={this.onClickGender}
@@ -255,12 +204,6 @@ class FormPet extends Component {
                             onClick={this.onClickGender}
                             value="female"
                             text="Fêmea" />
-=======
-                        <ItemSelected onChange={this.props.onChangeGender} value="male" text="Macho" />
-                    </div>
-                    <div className="col-4">
-                        <ItemSelected onChange={this.props.onChangeGender} value="female" text="Fêmea" />
->>>>>>> 22738f1dda802e757bc9f6b9783a37fb47c6f21c
                     </div>
                 </div>
 
@@ -269,7 +212,6 @@ class FormPet extends Component {
                 </div>
                 <div className="row">
                     <div className="col-4">
-<<<<<<< HEAD
                         <ItemSelected
                             isActive={this.state.category.findActive}
                             onClick={this.onClickCategory}
@@ -289,15 +231,6 @@ class FormPet extends Component {
                             onClick={this.onClickCategory}
                             value="adoption"
                             text="Adoção" />
-=======
-                        <ItemSelected onChange={this.props.onChangeCategory} value="find" text="Achado" />
-                    </div>
-                    <div className="col-4">
-                        <ItemSelected onChange={this.props.onChangeCategory} value="lost" text="Perdido" />
-                    </div>
-                    <div className="col-4">
-                        <ItemSelected onChange={this.props.onChangeCategory} value="adoption" text="Adoção" />
->>>>>>> 22738f1dda802e757bc9f6b9783a37fb47c6f21c
                     </div>
                 </div>
 
@@ -315,7 +248,7 @@ class FormPet extends Component {
                     <InputSearch placeholder="Descreva algo sobre o pet" onChange={this.props.onChangeDescription} value={description} /> <br />
                 </div>
 
-                <ButtonSubmit/>
+                <ButtonSubmit />
 
             </form>
         )

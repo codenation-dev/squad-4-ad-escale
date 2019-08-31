@@ -9,12 +9,8 @@
   top: 0;
   z-index: 28;
   width: 100%;
-<<<<<<< HEAD
   margin-bottom: 10px;
   position: relative;
-=======
-  margin-bottom: 50px;
->>>>>>> 22738f1dda802e757bc9f6b9783a37fb47c6f21c
 }
 
 .menu-abrir {
@@ -110,10 +106,6 @@
   .nav-bar {
     position: relative;
   }
-  .navbar-brand {
-    margin-right: 15%;
-  }
-
   .navbar-brand {
     margin-right: 15%;
   }
