@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router";
 import "./pet-create.css";
 import FormPet from "../../components/FormPet";
+import Modal from "../../components/Modal";
 import {
   changeType,
   changeUrlImage,
@@ -17,6 +18,9 @@ import * as thunks from "./thunk";
 class PetCreate extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      showModal: false
+    };
   }
 
   onChangeType = event => {
@@ -49,7 +53,12 @@ class PetCreate extends Component {
 
   handleCreate = event => {
     event.preventDefault();
+    this.setState({ showModal: true });
     this.props.dispatch(thunks.createPet(this.props));
+  };
+
+  handleShowModal = () => {
+    this.setState({ showModal: !this.state.showModal });
   };
 
   render() {
@@ -65,26 +74,33 @@ class PetCreate extends Component {
     } = this.props;
 
     if (isCreated != undefined && isCreated != false) {
-      alert("Pet cadastrado!");
       return <Redirect to="/" />;
     }
 
     return (
-      <div className="div-center">
-        <p className="p-title">Dados do Pet</p>
-
-        <FormPet
-          value={this.props}
-          onChangeType={this.onChangeType}
-          onChangeUrlImage={this.onChangeUrlImage}
-          onChangeSize={this.onChangeSize}
-          onChangeGender={this.onChangeGender}
-          onChangeCategory={this.onChangeCategory}
-          onChangeLocalization={this.onChangeLocalization}
-          onChangeDescription={this.onChangeDescription}
-          handleSubmit={this.handleCreate}
+      <>
+        <Modal
+          showModal={this.state.showModal}
+          onCloseModal={this.handleShowModal}
+          title={"Novo Pet"}
+          message={"Pet cadastrado com sucesso"}
         />
-      </div>
+        <div className="div-center">
+          <p className="p-title">Dados do Pet</p>
+
+          <FormPet
+            value={this.props}
+            onChangeType={this.onChangeType}
+            onChangeUrlImage={this.onChangeUrlImage}
+            onChangeSize={this.onChangeSize}
+            onChangeGender={this.onChangeGender}
+            onChangeCategory={this.onChangeCategory}
+            onChangeLocalization={this.onChangeLocalization}
+            onChangeDescription={this.onChangeDescription}
+            handleSubmit={this.handleCreate}
+          />
+        </div>
+      </>
     );
   }
 }
