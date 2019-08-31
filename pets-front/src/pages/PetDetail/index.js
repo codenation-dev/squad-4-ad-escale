@@ -10,7 +10,7 @@ const PetDetail = ({ pet }) => {
           <img className="pet-image-detail" src={pet.image} />
         </div>
         <div className="pet-description">
-          Raça {pet.gender} Filhote {pet.size}
+          {pet.species} • {pet.gender} • {pet.size}
           <div className="pet-info-box">
             <span>{pet.city}</span>
             <span className="badge badge-success">{pet.category}</span>
