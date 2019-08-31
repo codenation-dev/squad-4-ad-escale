@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link, Route, Redirect } from "react-router-dom";
+import { withRouter } from "react-router";
 import PetCard from "../../components/PetCard";
 import { connect } from "react-redux";
 import { getMyPets as actionGetMyPets, selectCard } from "./actions";
@@ -17,8 +19,17 @@ const MyPets = ({ myPets, handleSelectedCard }) => {
           <div className="my-pet-card">
             <PetCard key={pet.id} pet={pet} />
             <div className="buttons">
-              <button className="delete">X</button>
-              <button className="edite">Editar</button>
+              <button className="delete">Excluir</button>
+              <Link
+                to={{
+                  pathname: "/pet-create",
+                  state: {
+                    edit: true
+                  }
+                }}
+              >
+                <button className="edit">Editar</button>
+              </Link>
             </div>
           </div>
         ))}
@@ -39,7 +50,9 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(MyPets);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(MyPets)
+);

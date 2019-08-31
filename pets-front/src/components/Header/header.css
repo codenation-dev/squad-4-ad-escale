@@ -25,7 +25,8 @@
   margin: 20px 250px 0;
 }
 
-.barra-nav, .menu-principal {
+.barra-nav,
+.menu-principal {
   display: inline-block;
   vertical-align: middle;
   list-style-type: none;
@@ -46,6 +47,7 @@
 .menu-principal a {
   color: #fff;
   text-decoration: none;
+  font-weight: 500;
 }
 
 .menu-principal a:hover {
@@ -86,13 +88,16 @@
     right: -90%;
     transition: right 0.3s ease-out;
   }
+
   .menu-ativo .barra-nav {
     right: 0;
   }
+
   .menu-principal li {
     padding: 1em 0;
     width: 100%;
   }
+
   .menu-ativo:after {
     content: "";
     display: block;
@@ -103,16 +108,20 @@
     right: 0;
     background: rgba(0, 0, 0, 0.4);
   }
+
   .nav-bar {
     position: relative;
   }
+
   .navbar-brand {
     margin-right: 15%;
   }
 }
 
 @media not all and (max-width: 600px) {
-  .menu-abrir, .menu-fechar {
+
+  .menu-abrir,
+  .menu-fechar {
     display: none;
   }
 }
