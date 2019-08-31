@@ -28,11 +28,15 @@ class App extends Component {
   }
 
   render() {
+    let path = this.props.location.pathname;
+    let disable = path.includes("/pet/");
+
     return (
       <div>
         {this.props.location.pathname !== "/login" &&
           this.props.location.pathname !== "/forgotPassword" &&
-          this.props.location.pathname !== "/advancedSearch" ? (
+          this.props.location.pathname !== "/advancedSearch" &&
+          this.props.location.pathname !== (disable ? path : "any") ? (
             <Header />
           ) : null}
 

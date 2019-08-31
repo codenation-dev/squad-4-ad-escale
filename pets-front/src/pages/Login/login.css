@@ -1,17 +1,17 @@
 .div-center {
     text-align: center;
-    margin: 5px 15px 0 15px;   
+    margin: 5px 15px 0 15px;
 }
 
 .div-right {
     text-align: right;
-    margin: 5px 15px 0 15px; 
+    margin: 5px 15px 0 15px;
 }
 
 .div-center-content {
     text-align: center;
     justify-content: center;
-    margin: 20px 15px 0 15px;  
+    margin: 20px 15px 0 15px;
 }
 
 .p-link {
@@ -28,7 +28,7 @@
 }
 
 .img-logo {
-    width: 150px;
+    width: 180px;
 }
 
 .div-logo {

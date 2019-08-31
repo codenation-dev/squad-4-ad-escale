@@ -5,7 +5,8 @@ const INITIAL_STATE = {
   username: "",
   telephone: "",
   email: "",
-  password: ""
+  password: "",
+  success: false
 };
 
 export default function reducer(stateStore = INITIAL_STATE, action) {
@@ -37,7 +38,7 @@ export default function reducer(stateStore = INITIAL_STATE, action) {
     case types.REGISTER_SUCCESS: {
       return {
         ...stateStore,
-        isLogged: action.payload,
+        success: action.payload,
         tryLogin: true
       };
     }
