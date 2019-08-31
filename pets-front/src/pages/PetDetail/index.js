@@ -15,6 +15,7 @@ const PetDetail = (pet) => {
           <span className="badge badge-success">{animal.category}</span>
           < br />
           {animal.species} • {animal.gender} • {animal.size}
+
           <div className="pet-info-box">
             <span>{animal.city}</span>
           </div>
