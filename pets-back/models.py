@@ -4,19 +4,6 @@ from sqlalchemy.orm import backref, relationship
 from sqlalchemy_utils import ChoiceType
 import graphene
 
-# GENDER_CHOICES = [
-#     (u'female', u'Fêmea'),
-#     (u'male', u'Macho')
-# ]
-
-# SPECIES_CHOICES = [
-#     (u'dog', u'Cão'),
-#     (u'cat', u'Gato'),
-#     (u'bird', u'Ave'),
-#     (u'rodent', u'Roedor'),
-#     (u'fish', u'Peixe'),
-#     (u'reptile', u'Réptil')
-# ]
 
 class AnimalModel(Base):
     __tablename__ = 'animals'

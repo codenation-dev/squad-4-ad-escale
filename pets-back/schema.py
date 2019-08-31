@@ -1,24 +1,27 @@
 import graphene
 from graphene import relay, ObjectType, Field, String, ID, Int, Boolean
 from graphene_sqlalchemy import SQLAlchemyConnectionField, SQLAlchemyObjectType, converter
-
 from database import db_session
 from models import AnimalModel
 from models import BreedModel
 from models import UserModel
 from sqlalchemy import desc
 
+
 class Users(SQLAlchemyObjectType):
     class Meta:
         model = UserModel
+
 
 class UsersConnection(relay.Connection):
     class Meta:
         node = Users
 
+
 class Animal(SQLAlchemyObjectType):
     class Meta: 
         model = AnimalModel
+
 
 class Breed(SQLAlchemyObjectType):
     class Meta: 
@@ -37,10 +40,6 @@ class AnimalAttributes(object):
     category = String(required=False)
     userId = Int(required=False)
 
-class BreedAttributes(object):
-    id = ID(required=False)
-    name = String(required=False)
-    specie = String(required=False)
 
 class UserAttributes(object):
     id = ID(required=False)    
