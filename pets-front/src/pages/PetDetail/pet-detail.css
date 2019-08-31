@@ -5,8 +5,8 @@
 }
 
 .pet-image-detail {
-  max-width:100%;
-  max-height:400px
+  max-width: 100%;
+  max-height: 400px
 }
 
 .pet-description {
@@ -28,23 +28,28 @@
   justify-content: center;
 }
 
+.pet-date {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  color: #bebebe;
+}
+
 /* For mobile phones: */
+
 [class*="col-"] {
-    width: 100%;
+  width: 100%;
 }
 
 @media (max-width: 600px) {
-    .pet-description {
-        max-width: 1024px;
-        width: 80%;
-        height: 100px;
-      }
-
-      .pet-detail {
-        width: 100%;
-      }
-
-      .pet-image-detail {
-        margin-left: 0;
-      }
+  .pet-description {
+    max-width: 1024px;
+    width: 80%;
+    height: 100px;
+  }
+  .pet-detail {
+    width: 100%;
+  }
+  .pet-image-detail {
+    margin-left: 0;
+  }
 }

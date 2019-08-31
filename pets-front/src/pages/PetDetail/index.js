@@ -1,29 +1,32 @@
 import React from "react";
 import { connect } from "react-redux";
 import "./pet-detail.css";
+import { FaUser } from 'react-icons/fa';
 
-const PetDetail = ({ pet }) => {
+const PetDetail = (pet) => {
+  let animal = pet.location.state.pet;
   return (
     <div>
       <div className="pet-detail">
         <div className="text-center">
-          <img className="pet-image-detail" src={pet.image} />
+          <img className="pet-image-detail" src={animal.image} />
         </div>
         <div className="pet-description">
-          {pet.species} • {pet.gender} • {pet.size}
+          <span className="badge badge-success">{animal.category}</span>
+          < br />
+          {animal.species} • {animal.gender} • {animal.size}
+
           <div className="pet-info-box">
-            <span>{pet.city}</span>
-            <span className="badge badge-success">{pet.category}</span>
+            <span>{animal.city}</span>
           </div>
+          <p className="pet-date">Postado em {animal.date}</p>
         </div>
-        <section>
-          {pet.details}
-          In eu sapien lectus. Donec euismod facilisis congue. Mauris facilisis
-          fermentum vulputate. Pellentesque pellentesque dictum arcu, nec
-          maximus augue cursus vitae. Praesent eget enim porttitor, malesuada
-          est in, efficitur quam. Integer commodo convallis ullamcorper.
-          Praesent commodo nisi quis sollicitudin blandit. Quisque convallis
-          interdum hendrerit.
+        <section style={{ margin: "10px" }}>
+
+          <FaUser /> Maria:
+
+          <div>{animal.details}</div>
+
         </section>
       </div>
     </div>

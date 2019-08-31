@@ -112,7 +112,7 @@ class AdvancedSearch extends Component {
           </div>
         </div>
 
-        <Link to="/pet-search/">
+        <Link to={`/pet-search/cat`} >
           <div className="div-button-search">
 
             <ButtonSearch />

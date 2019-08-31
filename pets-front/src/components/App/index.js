@@ -42,13 +42,13 @@ class App extends Component {
 
         <Route path="/forgotPassword" exact component={NewPassword} />
 
-        <Route path="/pet-search/" exact component={PetSearch} />
+        <Route path="/pet-search/:searchText" exact component={PetSearch} />
 
         <Route path="/register" exact component={Register} />
 
         <Route path="/pet/:id" exact component={PetDetail} />
 
-        <Route path="/search/:search" exact component={PetSearch} />
+        <Route path="/search/:search" exact component={() => (<PetSearch pet={this.props.location.state} />)} />
 
         <Route path="/profile" exact component={Profile} />
 
