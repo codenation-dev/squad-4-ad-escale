@@ -1,38 +1,38 @@
-import * as types from "../pages/Home/types";
+import * as types from "../pages/MyPets/types";
+import mock from "../_assets/my_pets_mock.json";
 
 const INITIAL_STATE = {
-  pets: [],
-  cardSelected: null
+  meuPet: mock.data.animals
 };
 
 export default function reducer(stateStore = INITIAL_STATE, action) {
   switch (action.type) {
-    case types.SELECT_CARD: {
-      return {
-        ...stateStore,
-        cardSelected: action.payload
-      };
-    }
-    case types.GET_PETS: {
+    case types.GET_MY_PETS: {
       return {
         ...stateStore,
         loading: true
       };
     }
-    case types.SUCCESS_GET_PETS: {
+    case types.SELECT_CARD: {
+      return {
+        ...stateStore,
+        meuPet: mock.results
+      };
+    }
+    case types.SUCCESS_GET_MY_PETS: {
       return {
         ...stateStore,
         loading: false,
-        pets: action.payload,
+        meuPet: action.payload,
         message: ""
       };
     }
-    case types.FAILED_GET_PETS: {
+    case types.FAILED_GET_MY_PETS: {
       return {
         ...stateStore,
         loading: false,
-        pets: [],
-        message: "Falha ao carregar os PETS"
+        meuPet: [],
+        message: "Falha ao carregar os seus pets"
       };
     }
 
