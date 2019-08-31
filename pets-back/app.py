@@ -12,42 +12,6 @@ app.debug = True
 app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-example_query = """
-{
-  animals(species:dog){
-    id
-    name
-  }
-}
-
-"""
-example_create= """
-mutation {
-  createAnimal (input: {
-    name: "Alexis ROLLAND"
-  }) {
-    animal {
-      id
-      name
-    }
-  }
-}
-"""
-
-example_update = """"
-mutation {
-  updateAnimal (input: {
-    id: 1,
-    name: "Jack"
-  }) {
-    animal {
-      id
-      name
-    }
-  }
-}
-"""
-
 app.add_url_rule(
     "/graphql", view_func=GraphQLView.as_view("graphql", schema=schema, graphiql=True)
 )
