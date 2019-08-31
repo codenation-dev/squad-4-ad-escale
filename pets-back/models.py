@@ -20,12 +20,6 @@ class AnimalModel(Base):
     userId = Column(Integer)
 
 
-class BreedModel(Base):
-    __tablename__ = 'breeds'
-    id = Column(Integer, primary_key=True)
-    name =  Column(String)
-    specie = Column(String)
-
 class UserModel(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)

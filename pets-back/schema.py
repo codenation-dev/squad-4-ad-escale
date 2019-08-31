@@ -3,7 +3,6 @@ from graphene import relay, ObjectType, Field, String, ID, Int, Boolean
 from graphene_sqlalchemy import SQLAlchemyConnectionField, SQLAlchemyObjectType, converter
 from database import db_session
 from models import AnimalModel
-from models import BreedModel
 from models import UserModel
 from sqlalchemy import desc
 
@@ -22,10 +21,6 @@ class Animal(SQLAlchemyObjectType):
     class Meta: 
         model = AnimalModel
 
-
-class Breed(SQLAlchemyObjectType):
-    class Meta: 
-        model = BreedModel
 
 class AnimalAttributes(object):
     id = ID(required=False)
@@ -59,12 +54,8 @@ class CreateUserInput(graphene.InputObjectType, UserAttributes):
 
 class UpdateUserInput(graphene.InputObjectType, UserAttributes):
     """Arguments to update a user."""
-    # id = ID(required=True)
     pass 
 
-class CreateBreedInput(graphene.InputObjectType, BreedAttributes):
-    """Arguments to create a breed."""
-    exclude_fields = ['id']
 
 class CreateAnimalInput(graphene.InputObjectType, AnimalAttributes):
     """Arguments to create a animal."""
@@ -72,7 +63,6 @@ class CreateAnimalInput(graphene.InputObjectType, AnimalAttributes):
 
 class UpdateAnimalInput(graphene.InputObjectType, AnimalAttributes):
     """Arguments to update a animal."""
-    # id = ID(required=True)
     pass
 
 class CreateUser(graphene.Mutation):
@@ -100,19 +90,6 @@ class UpdateUser(graphene.Mutation):
         update = query.update(input)
         db_session.commit()
         return UpdateUser(user=query.first())
-
-class CreateBreed(graphene.Mutation):
-    breed = graphene.Field(Breed, description="Breed created by this mutation.")
-
-    class Arguments:
-        input = CreateBreedInput(required=True)
-
-    @staticmethod
-    def mutate(root, info, input):
-        breed = BreedModel(**input)
-        db_session.add(breed)
-        db_session.commit()
-        return CreateBreed(breed=breed)
 
 
 class CreateAnimal(graphene.Mutation):
@@ -145,7 +122,6 @@ class UpdateAnimal(graphene.Mutation):
 class Query(ObjectType):   
     model_fields_user = dict((name, getattr(UserAttributes, name)) for name in dir(UserAttributes) if not name.startswith('__'))    
     model_fields = dict((name, getattr(AnimalAttributes, name)) for name in dir(AnimalAttributes) if not name.startswith('__'))
-    model_fields_breed = dict((name, getattr(BreedAttributes, name)) for name in dir(BreedAttributes) if not name.startswith('__'))
     
     general = {
         'maxItems':String(required=False, description='Max number of items'),
@@ -153,7 +129,6 @@ class Query(ObjectType):
     }
 
     animals = graphene.List(Animal, **general, **model_fields, description='Return registered animals')
-    breeds = graphene.List(Breed, **general, **model_fields_breed, description='Return registered breeds')
     users = graphene.List(Users, **general, **model_fields_user, description='Return registered users')    
     
     def resolve_animals(self, info, **kwargs):
@@ -169,19 +144,7 @@ class Query(ObjectType):
                 query = query.filter( getattr(AnimalModel,attr)==value)
         return query.limit(maxItems).all()
     
-    def resolve_breeds(self, info, **kwargs):
-        query = BreedModel.query
-        maxItems = 1000
-        for attr,value in kwargs.items():
-            if attr == 'maxItems':
-                maxItems = int(value)
-            elif attr == 'orderByDesc':
-                query = query.order_by(desc(value))
-            else:
-                value = value.lower()
-                query = query.filter( getattr(BreedModel,attr)==value)
-        return query.limit(maxItems).all()
-
+    
     def resolve_users(self, info, **kwargs):        
         query = UserModel.query
         maxItems = 1000
@@ -197,7 +160,6 @@ class Query(ObjectType):
 class Mutation(graphene.ObjectType):
     createAnimal = CreateAnimal.Field()
     updateAnimal = UpdateAnimal.Field()
-    createBreed = CreateBreed.Field()
     create_user = CreateUser.Field()
     updateUser = UpdateUser.Field()
 
