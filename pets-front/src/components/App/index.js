@@ -31,10 +31,10 @@ class App extends Component {
     return (
       <div>
         {this.props.location.pathname !== "/login" &&
-        this.props.location.pathname !== "/forgotPassword" &&
-        this.props.location.pathname !== "/advancedSearch" ? (
-          <Header />
-        ) : null}
+          this.props.location.pathname !== "/forgotPassword" &&
+          this.props.location.pathname !== "/advancedSearch" ? (
+            <Header />
+          ) : null}
 
         <Route path="/" exact component={Home} />
 
@@ -42,15 +42,11 @@ class App extends Component {
 
         <Route path="/forgotPassword" exact component={NewPassword} />
 
-<<<<<<< HEAD
-                <Route path="/pet-search/" exact component={PetSearch} />
-                
-                <Route path="/profile" exact component={Profile} />
-=======
+        <Route path="/pet-search/" exact component={PetSearch} />
+
         <Route path="/register" exact component={Register} />
 
         <Route path="/pet/:id" exact component={PetDetail} />
->>>>>>> ac64d44ebba9feeaa10d7bfd578ca7631e56f15d
 
         <Route path="/search/:search" exact component={PetSearch} />
 
