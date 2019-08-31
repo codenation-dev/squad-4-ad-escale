@@ -35,6 +35,12 @@ export default function reducer(stateStore = INITIAL_STATE, action) {
         message: "Falha ao carregar os PETS"
       };
     }
+    case types.CHANGE_SEARCH: {
+      return {
+        ...stateStore,
+        searchText: action.payload
+      };
+    }
 
     default:
       return stateStore;

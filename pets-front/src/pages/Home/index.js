@@ -13,7 +13,8 @@ import {
   getPets as actionGetPets,
   selectCard,
   getPetsFailed,
-  getPetsSuccess
+  getPetsSuccess,
+  changeSearch
 } from "./actions";
 import * as thunks from "./thunk";
 
@@ -21,21 +22,40 @@ class Home extends Component {
   componentDidMount() {
     this.props.dispatch(thunks.getPets());
   }
+
+  onChangeSearchText = (event) => {
+    let e = event;
+    this.props.dispatch(changeSearch(event.target.value));
+  }
+
   render() {
     console.log(this.props);
     const { pets, handleSelectedCard } = this.props;
     const onSelectedCard = pet => {
       handleSelectedCard(pet);
     };
+
+    let search = ""
+
+    if (this.props.searchText === "cachorro") {
+      search = "dog"
+    } else { search = "pets" }
+
     return (
       <div>
         <Carousel />
         <SearchCard>
           <SearchNavbar></SearchNavbar>
           <br></br>
-          <InputSearch placeholder="Digite a espécie ou cidade do pet" />
+          <InputSearch
+            placeholder="Digite a espécie ou cidade do pet"
+            onChange={this.onChangeSearchText}
+            value={this.props.searchText}
+          />
           <br></br>
-          <ButtonSearch></ButtonSearch>
+          <Link to={`/pet-search/${search}`} >
+            <ButtonSearch />
+          </Link>
           <br></br>
           <AdvancedButtonSearch></AdvancedButtonSearch>
         </SearchCard>
@@ -43,7 +63,7 @@ class Home extends Component {
 
         <div className="all-cards">
           {pets.map(pet => (
-            <PetCard onSelectedCard={onSelectedCard} key={pet.id} pet={pet} />
+            <PetCard key={pet.id} pet={pet} />
           ))}
         </div>
 
@@ -55,14 +75,9 @@ class Home extends Component {
 
 function mapStateToProps(state) {
   return {
-    pets: state.pet.pets
+    pets: state.pet.pets,
+    searchText: state.pet.searchText
   };
 }
-
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     handleSelectedCard: pet => dispatch(selectCard(pet))
-//   };
-// }
 
 export default connect(mapStateToProps)(Home);
