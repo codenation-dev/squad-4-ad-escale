@@ -8,13 +8,33 @@ import {
 import { apiPets } from "./api";
 
 export function getPets() {
-  console.log("chegou aqui");
   return dispatch => {
     dispatch(actionGetPets());
-    apiPets()
-      .then(data => {
-        console.log("data", data);
-        dispatch(getPetsSuccess(data.data));
+    axios({
+      url: "https://petcodes.herokuapp.com/graphql",
+      method: "post",
+      data: {
+        query: `
+          query GetPet {
+              animals {
+                  id
+                  species
+                  name
+                  gender
+                  size
+                  insertDate
+                  imageURL
+                  detail
+                  category
+                  city
+                }
+            }
+          `
+      }
+    })
+      .then(result => {
+        console.log("res", result.data.data.animals);
+        dispatch(getPetsSuccess(result.data.data.animals));
       })
       .catch(() => dispatch(getPetsFailed()));
   };

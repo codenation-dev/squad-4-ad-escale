@@ -4,6 +4,7 @@ import "./pet-detail.css";
 import { FaUser } from 'react-icons/fa';
 import { MdClose } from "react-icons/md";
 import { Redirect } from 'react-router-dom';
+import Moment from 'react-moment';
 
 class PetDetail extends React.Component {
   constructor(props) {
@@ -34,7 +35,7 @@ class PetDetail extends React.Component {
             <MdClose />
           </div>
           <div className="text-center">
-            <img className="pet-image-detail" src={animal.image} />
+            <img className="pet-image-detail" src={animal.imageURL} />
           </div>
           <div className="pet-description">
             <span className="badge badge-success">{animal.category}</span>
@@ -42,9 +43,13 @@ class PetDetail extends React.Component {
             {animal.species} • {animal.gender} • {animal.size}
 
             <div className="pet-info-box">
+              <span>{animal.name}</span>
               <span>{animal.city}</span>
             </div>
-            <p className="pet-date">Postado em {animal.date}</p>
+            <p className="pet-date">Postado em 
+            <Moment format="DD/MM/YYYY">
+              {animal.insertDate}
+            </Moment></p>
           </div>
           <section style={{ margin: "10px" }}>
             <FaUser /> Maria:
