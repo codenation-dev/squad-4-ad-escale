@@ -15,7 +15,7 @@ graphql-server-core==1.1.1
 gunicorn==19.9.0
 itsdangerous==1.1.0
 Jinja2==2.10.1
-Mako==1.1.0
+Mako==1.2.2
 MarkupSafe==1.1.1
 promise==2.2.1
 psycopg2==2.8.3
